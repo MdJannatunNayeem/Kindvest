@@ -1,16 +1,18 @@
 import mongoose from 'mongoose';
 
-const ProfileSchema = new mongoose.Schema({
-
+const DonationSchema = new mongoose.Schema({
+        title: {type:String,unique:true,required:true},
+        description:{type:String,required:true},
+        donationType:{type:String,required:true},
+        donationImg:{type:String},
+        statusDonor:{type:String, enum:['pending', 'approved', 'rejected','delivered'], default:'pending'},
+        statusVol:{type:String, enum:['pending', 'approved', 'rejected','collected'], default:'pending'},
+        deliveryPic:{type:String},
         bio:{type:String},
-        skills:[{type:String}],
-        resume:{type:String}, // URL to resume file
-        resumeOriginalName:{type:String},
-        companyId:{type:mongoose.Schema.Types.ObjectId},
         userId:{type:mongoose.Schema.Types.ObjectId},
 
     },
     {timestamps:true,versionKey:false,}
 );
-const ProfileModel = mongoose.model('profiles', ProfileSchema);
-export default ProfileModel;
+const DonationModel = mongoose.model('donations', DonationSchema);
+export default DonationModel;

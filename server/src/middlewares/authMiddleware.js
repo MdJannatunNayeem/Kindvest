@@ -3,6 +3,7 @@ import {DecodeToken} from "../utility/tokenUtility.js";
 
 export default (req,res,next)=>{
 
+    //console.log("middleware");
     // Receive Token
     let token=req.headers['token']
     if(!token){
@@ -24,7 +25,7 @@ export default (req,res,next)=>{
         req.headers.email=email;
         req.headers.id=id;
 
-        console.log(id ,email,"auth");
+        //console.log(id ,email,"auth");
         next();
     }
 };

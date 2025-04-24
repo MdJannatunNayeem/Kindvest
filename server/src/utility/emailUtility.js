@@ -1,37 +1,25 @@
 import nodemailer from 'nodemailer'
 import {EMAIL_HOST,EMAIL_PORT, EMAIL_PASSWORD,EMAIL_USER,MAIL_ENCRYPTION} from '../config/config.js'
 
-const EmailSend=async(EmailTo,EmailText,EmailSubject,EmailHTMLBody)=>{
+const EmailSend=async (EmailTo,EmailText,EmailSubject)=>{
 
-    const transporter = nodemailer.createTransport({
-        host: EMAIL_HOST,
-        port: EMAIL_PORT,
-        secure: true,
-        auth: {
-            user: EMAIL_USER,
-            pass: EMAIL_PASSWORD,
-        },
-        tls:{
-            rejectUnauthorized: false,
-        }
+    let  transport= nodemailer.createTransport({
+        host: "smtp.gmail.com",
+        port: 587,
+        secure:false,
+        auth:{user:"mdjannatunnayeem99@gmail.com",pass:"xybesnvagufgqtvc"},
+        tls:{rejectUnauthorized:false}
     })
 
-    const mailOptions = {
-         from: EMAIL_USER,
-         to:EmailTo,
-         subject: EmailSubject,
-         text: EmailText,
-         html:EmailHTMLBody
+
+    let mailOption={
+        from:'KINDVEST INSTITUTION <mdjannatunnayeem99@gmail.com>',
+        to:EmailTo,
+        subject:EmailSubject,
+        text:EmailText
     }
 
-    try {
-        await transporter.sendMail(mailOptions);
-        return true;
-    }catch(err){
-        return false;
-    }
-
-
+    return await transport.sendMail(mailOption)
 }
 
 export default EmailSend
