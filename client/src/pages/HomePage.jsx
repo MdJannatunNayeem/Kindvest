@@ -1,16 +1,16 @@
 
-import MenuBar from "../components/MenuBar.jsx";
 import HeroSection from "../components/HeroSection.jsx";
 import AboutSection from "../components/AboutSection.jsx";
-import Footer from "../components/Footer.jsx";
+
+import MasterLayout from "../../MasterLayout/MasterLayout.jsx";
 
 const HomePage = () => {
     return (
         <div>
-            <MenuBar/>
+            <MasterLayout>
             <HeroSection/>
             <AboutSection/>
-            <Footer/>
+            </MasterLayout>
         </div>
     );
 };

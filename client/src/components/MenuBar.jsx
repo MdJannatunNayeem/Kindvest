@@ -14,16 +14,19 @@ const MenuBar = () => {
                         </div>
                         <div className="col-span-9">
                             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-                                <ul className="navbar-nav flex flex-row flex-wrap gap-x-5 float-right text-white gap-x-2">
+                                <ul className="navbar-nav flex gap-x-5 float-right text-white gap-x-2">
                                     <li className="nav-item hover:bg-orange-400
-                                    hover:px-3 hover:py-[3px] hover: rounded-full ">
-                                        <NavLink to={"/"}> </NavLink> Home</li>
+                                    hover:px-3 hover:py-[3px] hover: rounded-full p-[3px]">
+                                        <NavLink to={"/"}>Home </NavLink> </li>
                                     <li className="nav-item hover:bg-orange-400
-                                    hover:px-3 hover:py-[3px] hover: rounded-full ">
-                                        About Us</li>
-                                    <li className="nav-item hover:bg-orange-400 hover:px-3 hover:py-[3px] hover: rounded-full ">Testimonials</li>
-                                    <li className="nav-item hover:bg-orange-400 hover:px-3 hover:py-[3px] hover: rounded-full ">Login</li>
-                                    <li className="nav-item hover:bg-orange-400 hover:px-3 hover:py-[3px] hover: rounded-full ">Register</li>
+                                    hover:px-3 hover:py-[3px] hover: rounded-full p-[3px]">
+                                        <NavLink to={"/"}>About Us </NavLink> </li>
+                                    <li className="nav-item hover:bg-orange-400 hover:px-3 hover:py-[3px] hover: rounded-full p-[3px]">
+                                        <NavLink to={"/"}>Testimonials</NavLink> </li>
+                                    <li className="nav-item hover:bg-orange-400 hover:px-3 hover:py-[3px] hover: rounded-full p-[3px]">
+                                        <NavLink to={"/login"}>Login</NavLink></li>
+                                    <li className="nav-item hover:bg-orange-400 hover:px-3 hover:py-[3px] hover: rounded-full p-[3px] ">
+                                        <NavLink to={"/register"}>Register</NavLink></li>
                                 </ul>
                             </nav>
                         </div>

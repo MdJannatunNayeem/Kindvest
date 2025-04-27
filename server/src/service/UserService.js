@@ -6,14 +6,16 @@ import EmailSend from "../utility/emailUtility.js";
 export const registerService = async (req) => {
     try {
         const reqBody = req.body;
+        console.log("request accept", reqBody);
 
         const existingUser = await UsersModel.findOne({ email: reqBody.email });
         if (existingUser) {
-            return { status: 'error', error: 'User already exists with this email.' };
+            return { status: false, msg: 'User already exists with this email.' };
         }
 
         const data=await UsersModel.create(reqBody);
-        return {status:'true', data:data , msg:"successfully register"};
+        console.log(data);
+        return {status:true, data:data , msg:"successfully register"};
     }catch(e){
         return {status:'error',error:e.toString()};
     }

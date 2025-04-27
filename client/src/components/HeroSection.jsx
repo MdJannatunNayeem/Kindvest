@@ -8,10 +8,10 @@ export default function HeroSection() {
         infinite: true,
         autoplay: true,
         speed: 2000,
-        cssEase: "erase-in",
+        cssEase:  "cubic-bezier(0.25, 0.1, 0.25, 1.0)",
         slidesToShow: 1,
         slidesToScroll: 1,
-        autoplaySpeed: 3000,
+        autoplaySpeed: 6000,
 
     };
     return (
