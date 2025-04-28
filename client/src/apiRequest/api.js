@@ -40,5 +40,36 @@ class ApiRequest {
         }
     }
 
+    async logout() {
+        let result = await axios.get(`${baseURL}logout`, {
+            withCredentials: true,
+        });
+        if (result.data.status === true) {
+            SuccessToast(result.data.msg);
+            return true;
+        } else {
+            ErrorToast(result.data.msg);
+            return false;
+        }
+    }
+
+    async userDetails() {
+        //const  token = Cookies.get("token");
+        // console.log(token);
+
+        try{
+            let result = await axios.get(`${baseURL}user-details`,{
+                withCredentials: true});
+            console.log(result);
+            if (result.data.status === true) {
+                return result.data;
+            } else {
+                return false;
+            }
+        }catch (error){
+            console.log(error)
+        }
+    }
+
 }
-export const { register , fileUpload , login} = new ApiRequest();
+export const { register , fileUpload , login,userDetails,logout } = new ApiRequest();

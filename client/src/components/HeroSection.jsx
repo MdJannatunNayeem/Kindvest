@@ -1,8 +1,11 @@
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import {useNavigate} from "react-router-dom";
 
 export default function HeroSection() {
+
+    let navigate = useNavigate();
     var settings = {
         dots: true,
         infinite: true,
@@ -32,7 +35,9 @@ export default function HeroSection() {
                      font-bold py-2 px-4 rounded-full"> Donate Now
                     </button>
                     <button className=" absolute bottom-20 left-50 bg-orange-400 hover:bg-blue-700 text-white
-                     font-bold py-2 px-4 rounded-full"> Be a Volunteer
+                     font-bold py-2 px-4 rounded-full"
+                    onClick={()=>{ navigate("/register");}}
+                    > Be a Volunteer
                     </button>
                 </div>
             </div>
@@ -52,7 +57,7 @@ export default function HeroSection() {
                      font-bold py-2 px-4 rounded-full"> Donate Now
                     </button>
                     <button className=" absolute bottom-20 left-50 bg-orange-400 hover:bg-blue-700 text-white
-                     font-bold py-2 px-4 rounded-full"> Be a Volunteer
+                     font-bold py-2 px-4 rounded-full "  onClick={()=>{ navigate("/register");}} > Be a Volunteer
                     </button>
                 </div>
         </div>
@@ -72,7 +77,7 @@ export default function HeroSection() {
                      font-bold py-2 px-4 rounded-full"> Donate Now
                     </button>
                     <button className=" absolute bottom-20 left-50 bg-orange-400 hover:bg-blue-700 text-white
-                     font-bold py-2 px-4 rounded-full"> Be a Volunteer
+                     font-bold py-2 px-4 rounded-full"  onClick={()=>{ navigate("/register");}}> Be a Volunteer
                     </button>
                 </div>
 
@@ -92,7 +97,7 @@ export default function HeroSection() {
                      font-bold py-2 px-4 rounded-full  "> Donate Now
                     </button>
                     <button className=" absolute bottom-20 left-50 bg-orange-400 hover:bg-blue-700 text-white
-                     font-bold py-2 px-4 rounded-full"> Be a Volunteer
+                     font-bold py-2 px-4 rounded-full"  onClick={()=>{ navigate("/register");}}> Be a Volunteer
                     </button>
                 </div>
 
@@ -112,7 +117,7 @@ export default function HeroSection() {
                      font-bold py-2 px-4 rounded-full"> Donate Now
                     </button>
                     <button className=" absolute bottom-20 left-50 bg-orange-400 hover:bg-blue-700 text-white
-                     font-bold py-2 px-4 rounded-full"> Be a Volunteer
+                     font-bold py-2 px-4 rounded-full"  onClick={()=>{ navigate("/register");}}> Be a Volunteer
                     </button>
                 </div>
 
