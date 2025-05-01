@@ -5,13 +5,12 @@ import DonationModel from "../models/DonationModel.js";
 //admin create donation activity
 export const DonationCreateService = async (req) => {
     try {
-        req.body.userId = req.headers.id;
+        console.log(req.body);
         const reqBody = req.body;
-
         const data=await DonationModel.create(reqBody);
-        return {status:'true', data:data , msg:"successfully donation activity created"};
+        return {status:true, data:data , msg:"successfully donation activity created"};
     }catch(e){
-        return {status:'error',error:e.toString()};
+        return {status:false,error:e.toString()};
     }
 }
 

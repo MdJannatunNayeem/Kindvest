@@ -3,7 +3,6 @@ import mongoose from 'mongoose';
 const DonationSchema = new mongoose.Schema({
         title: {type:String,unique:true,required:true},
         description:{type:String,required:true},
-        donationType:{type:String,required:true},
         donationAreaId:{type:mongoose.Schema.Types.ObjectId},
 
     },
