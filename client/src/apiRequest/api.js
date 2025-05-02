@@ -86,5 +86,36 @@ class ApiRequest {
         }
     }
 
+    async createEvent(reqBody) {
+        console.log("reqBody:",reqBody);
+        let result = await axios.post(`${baseURL}create-event`, reqBody,{
+            withCredentials: true,
+        });
+        console.log(result);
+        if (result.data.status === true) {
+            SuccessToast(result.data.msg);
+            return true;
+        } else {
+            ErrorToast(result.data.msg);
+            return false;
+        }
+    }
+
+    async findDonationList() {
+
+        let result = await axios.get(`${baseURL}find-all-donations`,{
+            withCredentials: true,
+        });
+        console.log(result);
+        if (result.data.status === true) {
+            SuccessToast(result.data.msg);
+            return result.data;
+        } else {
+            ErrorToast(result.data.msg);
+            return false;
+        }
+    }
+
+
 }
-export const { register , fileUpload , login,userDetails,logout,createDonation } = new ApiRequest();
+export const { register , fileUpload , login,userDetails,logout,createDonation ,findDonationList,createEvent} = new ApiRequest();

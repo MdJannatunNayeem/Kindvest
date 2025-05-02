@@ -49,7 +49,7 @@ const MenuBar = () => {
 
     return (
         <>
-            <section className=" bg-black">
+            <section className=" bg-black sticky top-0 z-40">
                 <div className="container mx-auto px-4 py-3">
                     <div className="grid grid-cols-12 ">
                         <div className="col-span-3 flex flex-row">
