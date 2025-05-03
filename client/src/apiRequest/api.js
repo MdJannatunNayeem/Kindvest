@@ -16,7 +16,7 @@ class ApiRequest {
         let result = await axios.post(`${baseURL}file-upload`, reqBody);
         if (result.data.status === true) {
             SuccessToast(result.data.msg);
-            console.log(result.data.file);
+            console.log("api-img",result.data.file);
             return result;
         } else {
             ErrorToast(result.data.msg);
@@ -116,6 +116,52 @@ class ApiRequest {
         }
     }
 
+    async OnGoingEventList() {
+
+        let result = await axios.get(`${baseURL}on-going-events`,{
+            withCredentials: true,
+        });
+        console.log(result);
+        if (result.data.status === true) {
+            SuccessToast(result.data.msg);
+            return result.data;
+        } else {
+            ErrorToast(result.data.msg);
+            return false;
+        }
+    }
+
+    async UpdateOnGoingEvent(id,reqBody) {
+
+        console.log("Sending PUT request to:", reqBody)
+        let result = await axios.put(`${baseURL}${id}/update-event`,reqBody,{
+            withCredentials: true,
+        });
+        console.log(result);
+        if (result.data.status === true) {
+            SuccessToast(result.data.msg);
+            return result.data;
+        } else {
+            ErrorToast(result.data.msg);
+            return false;
+        }
+    }
+
+    async FindEventById(id) {
+
+        let result = await axios.get(`${baseURL}${id}/event`,{
+            withCredentials: true,
+        });
+        console.log(result);
+        if (result.data.status === true) {
+            SuccessToast(result.data.msg);
+            return result.data;
+        } else {
+            ErrorToast(result.data.msg);
+            return false;
+        }
+    }
 
 }
-export const { register , fileUpload , login,userDetails,logout,createDonation ,findDonationList,createEvent} = new ApiRequest();
+export const { register , fileUpload , login,userDetails,logout,createDonation ,findDonationList,createEvent,
+              OnGoingEventList,UpdateOnGoingEvent,FindEventById } = new ApiRequest();

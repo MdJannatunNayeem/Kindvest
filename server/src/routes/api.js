@@ -20,7 +20,10 @@ router.post("/changed-password", authMiddleware.default , UserController.changeP
 //admin donation
 router.post("/create-donation",authMiddleware.default,DonationController.createDonation);
 router.post("/create-event",authMiddleware.default,EventController.createEventController);
+router.put("/:id/update-event",authMiddleware.default,EventController.updateEventController);
+router.get("/:id/event",authMiddleware.default,EventController.findEventByIdController);
 router.get("/find-all-donations",authMiddleware.default,EventController.findEventController);
+router.get("/on-going-events",authMiddleware.default,EventController.getOnGoingEventController);
 router.get("/:id",authMiddleware.default,DonationController.DonationDetailsByDonationId);
 //router.get("/details/user", authMiddleware.default, DonationController.getDonationsByUserId);
 router.get('/donations-admin/user', authMiddleware.default, DonationController.AdminDonation);
