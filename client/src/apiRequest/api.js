@@ -162,6 +162,21 @@ class ApiRequest {
         }
     }
 
+    async ActivityList() {
+
+        let result = await axios.get(`${baseURL}activity`,{
+            withCredentials: true,
+        });
+        console.log(result);
+        if (result.data.status === true) {
+            SuccessToast(result.data.msg);
+            return result.data;
+        } else {
+            ErrorToast(result.data.msg);
+            return false;
+        }
+    }
+
 }
 export const { register , fileUpload , login,userDetails,logout,createDonation ,findDonationList,createEvent,
-              OnGoingEventList,UpdateOnGoingEvent,FindEventById } = new ApiRequest();
+              OnGoingEventList,UpdateOnGoingEvent,FindEventById,ActivityList } = new ApiRequest();

@@ -3,7 +3,7 @@ export const MONGODB_CONNECTION="";
 export const JWT_SECRET = "5EC7CEFA1BE7C9354A639369A2AA8";
 export const JWT_EXPIRATION_TIME = 60*60*24*30;
 
-export const EMAIL_HOST = "s";
+export const EMAIL_HOST = "smtp.gmail.com";
 export const EMAIL_PORT = "587";
 export const EMAIL_USER = "";
 export const EMAIL_PASSWORD = "";

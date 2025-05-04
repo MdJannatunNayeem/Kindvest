@@ -4,6 +4,7 @@ import * as authMiddleware from "../middlewares/authMiddleware.js";
 import * as FileUploadController from "../controllers/FileUploadController.js";
 import * as DonationController from "../controllers/DonationController.js";
 import * as EventController from "../controllers/DonationEventController.js";
+import * as DeleteFileUtility from "../utility/DeleteFileUtility.js"
 import upload from "../middlewares/FileUploads.js";
 //import uthMiddleware from "../middlewares/authMiddleware.js";
 const router = express.Router();
@@ -22,6 +23,8 @@ router.post("/create-donation",authMiddleware.default,DonationController.createD
 router.post("/create-event",authMiddleware.default,EventController.createEventController);
 router.put("/:id/update-event",authMiddleware.default,EventController.updateEventController);
 router.get("/:id/event",authMiddleware.default,EventController.findEventByIdController);
+router.get("/activity",authMiddleware.default,EventController.AllEventController);
+
 router.get("/find-all-donations",authMiddleware.default,EventController.findEventController);
 router.get("/on-going-events",authMiddleware.default,EventController.getOnGoingEventController);
 router.get("/:id",authMiddleware.default,DonationController.DonationDetailsByDonationId);
@@ -31,5 +34,6 @@ router.get('/donations-admin/user', authMiddleware.default, DonationController.A
 
 // file-route
 router.post("/file-upload", upload.single("file"), FileUploadController.fileUpload);
+router.delete("/delete-file/:filename", DeleteFileUtility.deleteUploadedFile);
 
 export default router;

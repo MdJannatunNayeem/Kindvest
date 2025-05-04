@@ -70,9 +70,9 @@ export const updateEvent = async (req)=>{
 
       console.log("Fetching from backend ",reqBody);
 
-      const {donationId,description,areaName,status} = reqBody;
+      const {donationId,description,areaName,status,bannerImg} = reqBody;
 
-      const updateData = {donationId,description,areaName,status};
+      const updateData = {donationId,description,areaName,status,bannerImg};
       await DonationEventModel.findByIdAndUpdate(eventId,updateData,{new:true});
       return { status:true, data:updateData , msg:"Successfully updated event" };
   }catch (error){
@@ -97,6 +97,7 @@ export const findEventById = async (req)=>{
                     areaName: 1,
                     description: 1,
                     status: 1,
+                    bannerImg:1,
                     "donationDetails.title": 1,
                     "donationDetails._id": 1,
                     createdAt: 1
@@ -106,6 +107,34 @@ export const findEventById = async (req)=>{
         ]);
         return { status:true, data:event , msg:"Successfully find" };
     }catch (error){
+        console.log(error);
+    }
+}
+
+
+export const AllEvent = async (req)=>{
+    try {
+        const event = await DonationEventModel.aggregate([
+
+            {$lookup:{from:"donations", localField:"donationId",foreignField:"_id" , as:"donationDetails" }},
+            {$unwind:"$donationDetails"},
+            {
+                $project: {
+                    _id: 1,
+                    areaName: 1,
+                    description: 1,
+                    status: 1,
+                    bannerImg:1,
+                    "donationDetails.title": 1,
+                    "donationDetails._id": 1,
+                    createdAt: 1
+                }
+            }
+
+        ]);
+
+        return { status:true, data:event,msg:"Successfully events find" };
+    }catch(error){
         console.log(error);
     }
 }

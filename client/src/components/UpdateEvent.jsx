@@ -4,20 +4,21 @@
 import  { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
-import {findDonationList, FindEventById, UpdateOnGoingEvent} from "../apiRequest/api.js";
+import {fileUpload, findDonationList, FindEventById, UpdateOnGoingEvent} from "../apiRequest/api.js";
 import {ErrorToast, SuccessToast} from "../Helper/helper.js";
 
 const UpdateEvent= () => {
     const { id } = useParams(); //
     const navigate = useNavigate();
+    const [file,setFile] = useState(null);
 
     const [formData, setFormData] = useState({
         donationId: "",
         description: "",
         areaName: "",
         status: "",
-        title:""
-       // logo: ""
+        title:"",
+       bannerImg: ""
     });
   //  const [preview, setPreview] = useState(null);
   //  const [file, setFile] = useState(null);
@@ -36,6 +37,7 @@ const UpdateEvent= () => {
                     areaName: data.areaName,
                     status: data.status,
                     title: data.donationDetails?.title,
+                    bannerImg: data.bannerImg
                 });
 
                 if (data) {
@@ -45,6 +47,7 @@ const UpdateEvent= () => {
                         areaName: data.areaName,
                         status: data.status,
                         title: data.donationDetails?.title,
+                        bannerImg: data.bannerImg
                         //logo: data.logo,
                     });
                    // setPreview(`http://localhost:5050/upload-file/${data.logo}`);
@@ -56,6 +59,18 @@ const UpdateEvent= () => {
     }, [id]);
 
     //donations list
+
+    const fileUploadFun = async () => {
+        if (!file) {
+            ErrorToast("Please select a file");
+            return;
+        }
+        const formData = new FormData();
+        formData.append("file", file);
+        const result = await fileUpload(formData);
+        console.log("picture",result);
+        return result?.data?.file.filename;
+    };
 
     useEffect(() => {
         (async () => {
@@ -84,14 +99,23 @@ const UpdateEvent= () => {
     const submitData = async (e) => {
         e.preventDefault();
         try {
+            let img;
+            if(file){
+                 img = await  fileUploadFun();
+
+            }
+            console.log("bannerImg = ",img)
             const requestBody = {
                 donationId: formData.donationId,
                 description: formData.description,
                 areaName: formData.areaName,
                 status: formData.status,
+                bannerImg: img
                 // If you need to add a file, handle it separately.
             };
            // if (file) updateData.append("file", file);
+
+
 
             const response = await UpdateOnGoingEvent(id,requestBody);
 
@@ -188,7 +212,7 @@ const UpdateEvent= () => {
                                     </div>
                                 </div>
 
-                                <div className="col-span-6">
+                                <div className="col-span-5">
                                     <div className="flex items-center justify-between">
                                         <label className="text-base font-medium text-orange-400">
                                             Status
@@ -213,6 +237,19 @@ const UpdateEvent= () => {
                                             <option value="finished">Finished</option>
                                         </select>
                                     </div>
+                                </div>
+
+                                <div className="col-span-7 ">
+                                    <label className="block mt-1 text-sm font-medium text-orange-400">Banner
+                                        Picture</label>
+                                    <input
+                                        onChange={(e) => setFile(e.target.files[0])}
+                                        name="avatar"
+                                        type="file"
+                                        className="mt-1 flex items-center justify-center w-50 text-sm text-orange-300 file:mr-4 file:py-3 file:px-4
+                                file:rounded-md file:border-0 file:text-sm file:font-semibold
+                                file:bg-orange-400 file:text-white hover:file:bg-blue-500"
+                                    />
                                 </div>
 
                                 <div className="col-span-12">
