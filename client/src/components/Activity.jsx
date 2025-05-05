@@ -126,7 +126,10 @@ const Activity =()=>{
                                             {event.donationDetails.title}
                                         </h4>
                                         <p className="text-sm font-semibold font-mono flex-shrink-0 whitespace-nowrap">
-                                            24 Jun
+                                            {new Date(event.createdAt).toLocaleString('en-GB', {
+                                                day: '2-digit',
+                                                month: 'long'
+                                            })}
                                         </p>
                                     </div>
 

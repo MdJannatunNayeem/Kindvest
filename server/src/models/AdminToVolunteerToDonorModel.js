@@ -5,7 +5,10 @@ const AdminDetailsSchema = new mongoose.Schema({
         AdminRemark:{type:String},
         donationAreaId:{type:mongoose.Schema.Types.ObjectId},
         donorId:{type:mongoose.Schema.Types.ObjectId},
-        receivedPic:{type:String}
+        quantity:{type:Number},
+        donationType:{type:String},
+        receivedPic:{type:String},
+        donationPic:{type:String},
 
     },
     {timestamps:true,versionKey:false,}

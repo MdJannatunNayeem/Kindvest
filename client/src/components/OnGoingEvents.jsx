@@ -27,14 +27,14 @@ const OnGoingEvents = () => {
             </div>
 
             <div className="m-4 overflow-x-auto rounded-xl border border-gray-300">
-                <table className="w-full border-separate border-spacing-0">
+                <table className="w-full table-fixed border-separate border-spacing-0">
                     <thead>
                     <tr className="bg-black text-white">
-                        <th className="rounded-tl-xl px-4 py-2 font-mono font-semibold text-left">Title</th>
-                        <th className="px-4 py-2 font-mono font-semibold text-left">Description</th>
-                        <th className="px-4 py-2 font-mono font-semibold text-left">Area Name</th>
-                        <th className="px-4 py-2 font-mono font-semibold text-left flex justify-center">Status</th>
-                        <th className="rounded-tr-xl px-4 py-2 font-mono font-semibold text-left">Action</th>
+                        <th className="w-1/6 rounded-tl-xl px-4 py-2 font-mono font-semibold text-left">Title</th>
+                        <th className="w-2/6 px-4 py-2 font-mono font-semibold text-left">Description</th>
+                        <th className="w-1/6 px-4 py-2 font-mono font-semibold text-left">Area Name</th>
+                        <th className="w-1/6 px-4 py-2 font-mono font-semibold text-center">Status</th>
+                        <th className="w-1/6 rounded-tr-xl px-4 py-2 font-mono font-semibold text-left">Action</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -44,15 +44,14 @@ const OnGoingEvents = () => {
                                 <td className="px-4 py-2 border-t">{event?.donationDetails?.title}</td>
                                 <td className="px-4 py-2 border-t">{event.description}</td>
                                 <td className="px-4 py-2 border-t">{event.areaName}</td>
-                                {event.status === "pending" ? (
-                                    <td className="px-4 py-2  border-t capitalize ">
-                                        <p className="text-white flex justify-center bg-yellow-500 rounded-full m-1">{event.status}</p></td>
-                                ) :  (
-                                    <td className="px-4 py-2  border-t capitalize">
-                                        <p className="text-white flex justify-center bg-green-500 rounded-full m-1">{event.status}</p>
-                                    </td>
-                                )}
-                                <td className="px-4 py-2 border-t  ">
+                                <td className="px-4 py-2 border-t capitalize text-center">
+                                    <p className={`text-white inline-block rounded-full px-3 py-1 ${
+                                        event.status === "pending" ? "bg-yellow-500" : "bg-green-500"
+                                    }`}>
+                                        {event.status}
+                                    </p>
+                                </td>
+                                <td className="px-4 py-2 border-t text-center">
                                     <button
                                         onClick={() => navigate(`/${event._id}/update-event`)}
                                         className="text-gray-600 hover:text-orange-600 transition-colors duration-200"
@@ -66,13 +65,14 @@ const OnGoingEvents = () => {
                     ) : (
                         <tr>
                             <td colSpan="5" className="text-center py-4 text-gray-500">
-                            No On Going Events
+                                No Ongoing Events
                             </td>
                         </tr>
                     )}
                     </tbody>
                 </table>
             </div>
+
         </section>
     );
 };
