@@ -5,6 +5,7 @@ import * as FileUploadController from "../controllers/FileUploadController.js";
 import * as DonationController from "../controllers/DonationController.js";
 import * as EventController from "../controllers/DonationEventController.js";
 import * as DeleteFileUtility from "../utility/DeleteFileUtility.js"
+import * as SingleDonationController from "../controllers/SingleDonationController.js";
 import upload from "../middlewares/FileUploads.js";
 //import uthMiddleware from "../middlewares/authMiddleware.js";
 const router = express.Router();
@@ -31,6 +32,10 @@ router.get("/:id",authMiddleware.default,DonationController.DonationDetailsByDon
 //router.get("/details/user", authMiddleware.default, DonationController.getDonationsByUserId);
 router.get('/donations-admin/user', authMiddleware.default, DonationController.AdminDonation);
 
+
+//single donation handle
+router.post("/:id/donate",authMiddleware.default,SingleDonationController.donateNowController);
+router.get("/donorId/donation",authMiddleware.default,SingleDonationController.donorDonationController);
 
 // file-route
 router.post("/file-upload", upload.single("file"), FileUploadController.fileUpload);

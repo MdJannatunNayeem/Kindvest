@@ -6,7 +6,7 @@ const AdminDetailsSchema = new mongoose.Schema({
         donationAreaId:{type:mongoose.Schema.Types.ObjectId},
         donorId:{type:mongoose.Schema.Types.ObjectId},
         quantity:{type:Number},
-        donationType:{type:String},
+        donationDescription:{type:String},
         receivedPic:{type:String},
         donationPic:{type:String},
 

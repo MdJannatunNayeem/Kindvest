@@ -12,5 +12,5 @@ const DonationEventSchema = new mongoose.Schema({
     {timestamps:true,versionKey:false,}
 );
 
-const DonationEventModel = mongoose.model('donationEvents', DonationEventSchema);
+const DonationEventModel = mongoose.model('donationevents', DonationEventSchema);
 export default DonationEventModel;
