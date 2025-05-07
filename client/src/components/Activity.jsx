@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
 import {ActivityList} from "../apiRequest/api.js";
+import {useNavigate} from "react-router-dom";
 
 
 const Activity =()=>{
@@ -9,6 +10,7 @@ const Activity =()=>{
     const [filteredEvents, setFilteredEvents]=useState([]);
     const [locations, setLocations]=useState([]);
     const [titles, setTitles]=useState([]);
+    const  navigate =useNavigate();
 
     useEffect(() => {
         (async () => {
@@ -63,7 +65,7 @@ const Activity =()=>{
 
     return (
         <>
-            <section className="min-h-[430px]  mx-4 rounded-lg">
+            <section className="min-h-[430px]   mx-4 rounded-lg">
 
                 <div className="grid grid-cols-12 gap-6">
 
@@ -151,6 +153,7 @@ const Activity =()=>{
 
                                         <span className="ml-auto">
                                         <button
+                                            onClick={() => navigate(`/${event._id}/donate`)}
                                             className="cursor-pointer bg-black hover:scale-95 transition-transform text-white hover:bg-orange-400 py-1 px-4 rounded-full">
                                           Donate
                                         </button>

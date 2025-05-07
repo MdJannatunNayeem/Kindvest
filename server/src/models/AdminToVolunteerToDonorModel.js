@@ -2,7 +2,8 @@ import mongoose from 'mongoose';
 
 const AdminDetailsSchema = new mongoose.Schema({
         volunteerId:{type:mongoose.Schema.Types.ObjectId},
-        AdminRemark:{type:String},
+        AdminRemark:{type:String, default:'pending'},
+        VolunteerRemark:{type:String, default:'pending'},
         donationAreaId:{type:mongoose.Schema.Types.ObjectId},
         donorId:{type:mongoose.Schema.Types.ObjectId},
         quantity:{type:Number},

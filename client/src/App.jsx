@@ -9,6 +9,8 @@ import UpdateEventPage from "./pages/UpdateEventPage.jsx";
 import VolunteerDashboardPage from "./pages/VolunteerDashboardPage.jsx";
 import DonorDashboardPage from "./pages/DonorDashboardPage.jsx";
 import ActivityPage from "./pages/ActivityPage.jsx";
+import DonationForm from "./components/DonationForm.jsx";
+import DonateFormPage from "./pages/DonateFormPage.jsx";
 
 
 function App() {
@@ -28,6 +30,7 @@ function App() {
                <Route path="/create-donation" element={<CreateDonationPage />} />
                <Route path="/:id/update-event" element={<UpdateEventPage />} />
                <Route path="/activity" element={<ActivityPage />} />
+               <Route path="/:id/donate" element={<DonateFormPage />} />
            </Routes>
        </BrowserRouter>
     </>

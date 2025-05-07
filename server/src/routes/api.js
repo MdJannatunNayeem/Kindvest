@@ -24,7 +24,7 @@ router.post("/create-donation",authMiddleware.default,DonationController.createD
 router.post("/create-event",authMiddleware.default,EventController.createEventController);
 router.put("/:id/update-event",authMiddleware.default,EventController.updateEventController);
 router.get("/:id/event",authMiddleware.default,EventController.findEventByIdController);
-router.get("/activity",authMiddleware.default,EventController.AllEventController);
+router.get("/activity",EventController.AllEventController);
 
 router.get("/find-all-donations",authMiddleware.default,EventController.findEventController);
 router.get("/on-going-events",authMiddleware.default,EventController.getOnGoingEventController);

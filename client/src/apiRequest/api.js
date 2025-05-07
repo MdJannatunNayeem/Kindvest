@@ -164,7 +164,20 @@ class ApiRequest {
 
     async ActivityList() {
 
-        let result = await axios.get(`${baseURL}activity`,{
+        let result = await axios.get(`${baseURL}activity`);
+        console.log(result);
+        if (result.data.status === true) {
+            SuccessToast(result.data.msg);
+            return result.data;
+        } else {
+            ErrorToast(result.data.msg);
+            return false;
+        }
+    }
+
+    async DonorDonationList() {
+
+        let result = await axios.get(`${baseURL}donorId/donation`,{
             withCredentials: true,
         });
         console.log(result);
@@ -177,6 +190,21 @@ class ApiRequest {
         }
     }
 
+    async donateNow(id,reqBody) {
+        console.log("reqBody:",reqBody,"id",id);
+        let result = await axios.post(`${baseURL}${id}/donate`, reqBody,{
+            withCredentials: true,
+        });
+        console.log(result);
+        if (result.data.status === true) {
+            SuccessToast(result.data.msg);
+            return true;
+        } else {
+            ErrorToast(result.data.msg);
+            return false;
+        }
+    }
+
 }
 export const { register , fileUpload , login,userDetails,logout,createDonation ,findDonationList,createEvent,
-              OnGoingEventList,UpdateOnGoingEvent,FindEventById,ActivityList } = new ApiRequest();
+              OnGoingEventList,UpdateOnGoingEvent,FindEventById,ActivityList ,DonorDonationList,donateNow } = new ApiRequest();
