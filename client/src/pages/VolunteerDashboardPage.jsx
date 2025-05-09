@@ -1,5 +1,6 @@
 import MenuBar from "../components/MenuBar.jsx";
 import VolunteerDashboard from "../components/VolunteerDashboard.jsx";
+import VolunteerNewDonationTable from "../components/VolunteerNewDonationTable.jsx";
 
 
 const VolunteerDashboardPage = () => {
@@ -7,6 +8,7 @@ const VolunteerDashboardPage = () => {
         <>
         <MenuBar/>
             <VolunteerDashboard/>
+            <VolunteerNewDonationTable/>
         </>
     );
 }

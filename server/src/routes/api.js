@@ -17,6 +17,7 @@ router.get("/logout", UserController.logout);
 router.get("/OTP/:email",UserController.useOTP);
 router.get('/VerifyLogin/:email/:otp',UserController.verifyOTP);
 router.get('/user-details',authMiddleware.default, UserController.UserDetails);
+router.get('/volunteers',authMiddleware.default,SingleDonationController.findAllVolunteerController);
 router.post("/changed-password", authMiddleware.default , UserController.changePassword);
 
 //admin donation
@@ -35,7 +36,14 @@ router.get('/donations-admin/user', authMiddleware.default, DonationController.A
 
 //single donation handle
 router.post("/:id/donate",authMiddleware.default,SingleDonationController.donateNowController);
+router.post("/:id/update-manage-donation",authMiddleware.default,SingleDonationController.updateMannageDonationController);
 router.get("/donorId/donation",authMiddleware.default,SingleDonationController.donorDonationController);
+router.get("/admin/mannage-donation",authMiddleware.default,SingleDonationController.mannageDonationController);
+
+//volunteer-donation
+router.get("/volunteer/donation",authMiddleware.default,SingleDonationController.volunteerNewDonationController);
+router.post("/:id/update-volunteer-remark/:status",SingleDonationController.updateVolNewDonationController);
+
 
 // file-route
 router.post("/file-upload", upload.single("file"), FileUploadController.fileUpload);

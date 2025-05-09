@@ -25,8 +25,8 @@ export default function HeroSection() {
                     className="w-full  h-[500px] object-cover shadow-lg"
                     src="/slide5.jpg" alt="donation"/>
                 <div className="absolute top-20 left-5  px-4 py-2 rounded">
-                    <h2 className="text-5xl text-bold font-mono font-bold">Together </h2>
-                    <h4 className="text-5xl text-bold font-mono font-bold">we can help</h4>
+                    <h2 className="text-5xl text-orange-400 text-bold font-mono font-bold">Together </h2>
+                    <h4 className="text-5xl text-orange-400 text-bold font-mono font-bold">we can help</h4>
                     <p className="text-white text-bold font-serif mt-4">Your help can bring hope and <br/> support to
                         them in need <br/> you can make the world a little better</p></div>
 
@@ -47,8 +47,8 @@ export default function HeroSection() {
                     src="/slide2.jpg" alt="donation"/>
 
                 <div className="absolute top-20 left-5  px-4 py-2 rounded">
-                    <h2 className="text-5xl text-bold font-mono font-bold">Together </h2>
-                    <h4 className="text-5xl text-bold font-mono font-bold">we can help</h4>
+                    <h2 className="text-5xl text-orange-400 text-bold font-mono font-bold">Together </h2>
+                    <h4 className="text-5xl text-orange-400 text-bold font-mono font-bold">we can help</h4>
                     <p className="text-white text-bold font-serif mt-4">Your help can bring hope and <br/> support to
                         them in need <br/> you can make the world a little better</p></div>
 
@@ -67,8 +67,8 @@ export default function HeroSection() {
                     src="/slide3.png" alt="donation"/>
 
                 <div className="absolute top-20 left-5  px-4 py-2 rounded">
-                    <h2 className="text-5xl text-bold font-mono font-bold">Together </h2>
-                    <h4 className="text-5xl text-bold font-mono font-bold">we can help</h4>
+                    <h2 className="text-5xl text-orange-400 text-bold font-mono font-bold">Together </h2>
+                    <h4 className="text-5xl text-orange-400 text-bold font-mono font-bold">we can help</h4>
                     <p className="text-white text-bold font-serif mt-4">Your help can bring hope and <br/> support to
                         them in need <br/> you can make the world a little better</p></div>
 
@@ -87,8 +87,8 @@ export default function HeroSection() {
                     className="w-full h-[500px] object-cover  shadow-lg"
                     src="/slide1.jpg" alt="donation"/>
                 <div className="absolute top-20 left-5  px-4 py-2 rounded">
-                    <h2 className="text-5xl text-bold font-mono font-bold">Together </h2>
-                    <h4 className="text-5xl text-bold font-mono font-bold">we can help</h4>
+                    <h2 className="text-5xl text-orange-400 text-bold font-mono font-bold">Together </h2>
+                    <h4 className="text-5xl text-orange-400 text-bold font-mono font-bold">we can help</h4>
                     <p className="text-white text-bold font-serif mt-4">Your help can bring hope and <br/> support to
                         them in need <br/> you can make the world a little better</p></div>
 
@@ -107,8 +107,8 @@ export default function HeroSection() {
                     className="w-full h-[500px] object-cover shadow-lg"
                     src="/slide6.jpg" alt="donation"/>
                 <div className="absolute top-20 left-5  px-4 py-2 rounded">
-                    <h2 className="text-5xl text-bold font-mono font-bold">Together </h2>
-                    <h4 className="text-5xl text-bold font-mono font-bold">we can help</h4>
+                    <h2 className="text-5xl text-orange-400 text-bold font-mono font-bold">Together </h2>
+                    <h4 className="text-5xl text-orange-400 text-bold font-mono font-bold">we can help</h4>
                     <p className="text-white text-bold font-serif mt-4">Your help can bring hope and <br/> support to
                         them in need <br/> you can make the world a little better</p></div>
 

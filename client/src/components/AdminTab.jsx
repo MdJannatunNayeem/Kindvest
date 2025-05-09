@@ -3,6 +3,7 @@ import 'react-tabs/style/react-tabs.css';
 import CreateDonation from "./CreateDonation.jsx";
 import CreateEvent from "./CreateEvent.jsx";
 import OnGoingEvents from "./OnGoingEvents.jsx";
+import ManageDonationTable from "./ManageDonationTable.jsx";
 
 const AdminTab = () => {
 
@@ -17,7 +18,7 @@ const AdminTab = () => {
                     <TabList className="bg-orange-300 text-white  font-bold rounded-xl border-[1.5px] border-gray-100">
                         <Tab>Select Event</Tab>
                         <Tab>On-Going Donation Progress</Tab>
-                        <Tab>Manage Volunteer</Tab>
+                        <Tab>Manage Donation</Tab>
                         <Tab>Create Donation</Tab>
 
                     </TabList>
@@ -29,9 +30,7 @@ const AdminTab = () => {
                         <OnGoingEvents/>
                     </TabPanel>
 
-                    <TabPanel> <h1>
-                        hello mona
-                    </h1></TabPanel>
+                    <TabPanel> <ManageDonationTable/></TabPanel>
                     {/* select  event*/}
                     <TabPanel>
                       <CreateDonation/>

@@ -63,19 +63,21 @@ const MenuBar = () => {
                                 <ul className="navbar-nav flex gap-x-5 float-right text-white gap-x-2">
                                     <li className="nav-item hover:bg-orange-400
                                     hover:px-3 hover:py-[3px] hover: rounded-full p-[3px]">
-                                        <NavLink to={"/"}>Home </NavLink> </li>
+                                        <NavLink to={"/"}>Home </NavLink></li>
                                     <li className="nav-item hover:bg-orange-400
                                     hover:px-3 hover:py-[3px] hover: rounded-full p-[3px]">
-                                        <NavLink to={"/"}>About Us </NavLink> </li>
+                                        <NavLink to={"/"}>About Us </NavLink></li>
                                     <li className="nav-item hover:bg-orange-400 hover:px-3 hover:py-[3px] hover: rounded-full p-[3px]">
-                                        <NavLink to={"/"}>Testimonials</NavLink> </li>
-                                    {isLogin ?(<>
+                                        <NavLink to={"/"}>Testimonials</NavLink></li>
+                                    <li className="nav-item hover:bg-orange-400 hover:px-3 hover:py-[3px] hover: rounded-full p-[3px]">
+                                        <NavLink to={"/activity"}>All Activity</NavLink></li>
+
+                                    {isLogin ? (<>
                                                 {profile.role === "admin" ? (
                                                     <>
-                                                        <li className="nav-item hover:bg-orange-400 hover:px-3 hover:py-[3px] hover: rounded-full p-[3px]">
-                                                            <NavLink to={"/"}>Manage Volunteer</NavLink></li>
+
                                                         <li className="nav-item hover:bg-orange-400 hover:px-3 hover:py-[3px] hover: rounded-full p-[3px] ">
-                                                            <NavLink to={"/create-donation"}>Create Donation</NavLink></li>
+                                                            <NavLink to={"/"}>Volunteer List</NavLink></li>
                                                     </>
                                                 ) : profile.role === "donor" ? (
                                                     <>
@@ -90,13 +92,16 @@ const MenuBar = () => {
 
                                                     </>
                                                 )}
+                                                <li className="nav-item bg-blue-400  rounded-full p-[4px]">
+                                                    <NavLink to={`/${profile.role}-dashboard`}>Dashboard</NavLink></li>
 
-                                                <div className="w-8 h-8 rounded-full border border-white border-[1px] overflow-hidden">
+                                                <div
+                                                    className="w-8 h-8 rounded-full border border-white border-[1px] overflow-hidden">
                                                     <img
                                                         alt="profile"
                                                         src={`http://localhost:5050/upload-file/${profile?.profileImg}`}
                                                         className="w-full h-full object-cover"
-                                                        onClick={()=> setOpen(!open)}
+                                                        onClick={() => setOpen(!open)}
                                                     />
                                                 </div>
                                                 {open && (
@@ -145,7 +150,7 @@ const MenuBar = () => {
                                         ) :
                                         (
                                             <>
-                                                <li className="nav-item hover:bg-orange-400 hover:px-3 hover:py-[3px] hover: rounded-full p-[3px]">
+                                            <li className="nav-item hover:bg-orange-400 hover:px-3 hover:py-[3px] hover: rounded-full p-[3px]">
                                                     <NavLink to={"/login"}>Login</NavLink></li>
                                                 <li className="nav-item hover:bg-orange-400 hover:px-3 hover:py-[3px] hover: rounded-full p-[3px] ">
                                                     <NavLink to={"/register"}>Register</NavLink></li>

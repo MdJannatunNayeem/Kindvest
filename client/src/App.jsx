@@ -11,6 +11,7 @@ import DonorDashboardPage from "./pages/DonorDashboardPage.jsx";
 import ActivityPage from "./pages/ActivityPage.jsx";
 import DonationForm from "./components/DonationForm.jsx";
 import DonateFormPage from "./pages/DonateFormPage.jsx";
+import ManageDonationUpdatePage from "./pages/ManageDonationUpdatePage.jsx";
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
                <Route path="/:id/update-event" element={<UpdateEventPage />} />
                <Route path="/activity" element={<ActivityPage />} />
                <Route path="/:id/donate" element={<DonateFormPage />} />
+               <Route path="/:id/update-manage-donation" element={<ManageDonationUpdatePage />} />
            </Routes>
        </BrowserRouter>
     </>

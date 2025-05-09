@@ -205,6 +205,82 @@ class ApiRequest {
         }
     }
 
+    async ManageDonationList() {
+
+        let result = await axios.get(`${baseURL}admin/mannage-donation`,{
+            withCredentials: true,
+        });
+        console.log(result);
+        if (result.data.status === true) {
+            SuccessToast(result.data.msg);
+            return result.data;
+        } else {
+            ErrorToast(result.data.msg);
+            return false;
+        }
+    }
+
+    async volunteersList(){
+
+        let result = await axios.get(`${baseURL}volunteers`,{
+            withCredentials: true,
+        });
+        console.log(result);
+        if (result.data.status === true) {
+            SuccessToast(result.data.msg);
+            return result.data;
+        } else {
+            ErrorToast(result.data.msg);
+            return false;
+        }
+    }
+
+    async UpdateManageDonation(id,reqBody) {
+
+        console.log("Sending PUT request to:", reqBody)
+        let result = await axios.post(`${baseURL}${id}/update-manage-donation`,reqBody,{
+            withCredentials: true,
+        });
+        console.log(result);
+        if (result.data.status === true) {
+            SuccessToast(result.data.msg);
+            return result.data;
+        } else {
+            ErrorToast(result.data.msg);
+            return false;
+        }
+    }
+
+    async VolunteerNewDonationList() {
+
+        let result = await axios.get(`${baseURL}volunteer/donation`,{
+            withCredentials: true,
+        });
+        console.log(result);
+        if (result.data.status === true) {
+            SuccessToast(result.data.msg);
+            return result.data;
+        } else {
+            ErrorToast(result.data.msg);
+            return false;
+        }
+    }
+
+    async UpdateNewVolDonation(id,status) {
+
+        console.log("Sending PUT request to:", status)
+        let result = await axios.post(`${baseURL}${id}/update-volunteer-remark/${status}`);
+        console.log("result return",result);
+        if (result.data.status === true) {
+            SuccessToast(result.data.msg);
+            return result.data;
+        } else {
+            ErrorToast(result.data.msg);
+            return false;
+        }
+    }
+
 }
 export const { register , fileUpload , login,userDetails,logout,createDonation ,findDonationList,createEvent,
-              OnGoingEventList,UpdateOnGoingEvent,FindEventById,ActivityList ,DonorDonationList,donateNow } = new ApiRequest();
+              OnGoingEventList,UpdateOnGoingEvent,FindEventById,ActivityList ,DonorDonationList,donateNow,
+              ManageDonationList,volunteersList,UpdateManageDonation,VolunteerNewDonationList,UpdateNewVolDonation} = new ApiRequest();
