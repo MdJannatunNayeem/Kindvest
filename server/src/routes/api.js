@@ -43,6 +43,7 @@ router.get("/admin/mannage-donation",authMiddleware.default,SingleDonationContro
 //volunteer-donation
 router.get("/volunteer/donation",authMiddleware.default,SingleDonationController.volunteerNewDonationController);
 router.post("/:id/update-volunteer-remark/:status",SingleDonationController.updateVolNewDonationController);
+router.get("/donation-details/:id",authMiddleware.default,SingleDonationController.DonationDetailsController);
 
 
 // file-route

@@ -129,7 +129,7 @@ const MenuBar = () => {
                                                                 <span className="flex flex-row gap-3"><AiOutlineUser
                                                                     className="w-6 h-6 bg-black rounded-full"/>
                                                                     <NavLink
-                                                                        to={`/${profile._id}`}>Profile</NavLink></span>
+                                                                        to={`/user-details/`}>Profile</NavLink></span>
                                                             </li>
 
                                                             <li className="mb-2 bg-gray-500 hover:bg-orange-500 hover:text-white rounded-md cursor-pointer transition-all duration-200 ease-in-out">

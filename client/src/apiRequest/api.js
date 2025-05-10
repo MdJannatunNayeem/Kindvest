@@ -280,7 +280,26 @@ class ApiRequest {
         }
     }
 
+    async DonationDetails(id) {
+
+        console.log("Sending PUT request to:",` ${baseURL}donation-details/${id}`);
+        let result = await axios.get(`${baseURL}donation-details/${id}`,{
+            withCredentials: true,
+        });
+        console.log("result return",result);
+        if (result.data.status === true) {
+            SuccessToast(result.data.msg);
+            return result.data;
+        } else {
+            ErrorToast(result.data.msg);
+            return false;
+        }
+    }
+
+
+
 }
 export const { register , fileUpload , login,userDetails,logout,createDonation ,findDonationList,createEvent,
               OnGoingEventList,UpdateOnGoingEvent,FindEventById,ActivityList ,DonorDonationList,donateNow,
-              ManageDonationList,volunteersList,UpdateManageDonation,VolunteerNewDonationList,UpdateNewVolDonation} = new ApiRequest();
+              ManageDonationList,volunteersList,UpdateManageDonation,VolunteerNewDonationList,UpdateNewVolDonation,
+    DonationDetails,} = new ApiRequest();

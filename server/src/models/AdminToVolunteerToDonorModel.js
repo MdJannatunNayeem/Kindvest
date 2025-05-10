@@ -10,6 +10,7 @@ const AdminDetailsSchema = new mongoose.Schema({
         donationDescription:{type:String},
         receivedPic:{type:String},
         donationPic:{type:String},
+        collectionAddress:{type:String},
 
     },
     {timestamps:true,versionKey:false,}

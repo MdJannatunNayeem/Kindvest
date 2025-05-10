@@ -12,6 +12,8 @@ import ActivityPage from "./pages/ActivityPage.jsx";
 import DonationForm from "./components/DonationForm.jsx";
 import DonateFormPage from "./pages/DonateFormPage.jsx";
 import ManageDonationUpdatePage from "./pages/ManageDonationUpdatePage.jsx";
+import DonorDonationDetailsPage from "./pages/DonorDonationDetailsPage.jsx";
+import ProfilePage from "./pages/ProfilePage.jsx";
 
 
 function App() {
@@ -33,6 +35,8 @@ function App() {
                <Route path="/activity" element={<ActivityPage />} />
                <Route path="/:id/donate" element={<DonateFormPage />} />
                <Route path="/:id/update-manage-donation" element={<ManageDonationUpdatePage />} />
+               <Route path="/donation-details/:id" element={<DonorDonationDetailsPage />} />
+               <Route path="/user-details" element={<ProfilePage />} />
            </Routes>
        </BrowserRouter>
     </>
