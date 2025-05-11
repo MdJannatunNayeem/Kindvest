@@ -19,6 +19,7 @@ router.get('/VerifyLogin/:email/:otp',UserController.verifyOTP);
 router.get('/user-details',authMiddleware.default, UserController.UserDetails);
 router.get('/volunteers',authMiddleware.default,SingleDonationController.findAllVolunteerController);
 router.post("/changed-password", authMiddleware.default , UserController.changePassword);
+router.post("/update-profile",authMiddleware.default,UserController.updateProfileController);
 
 //admin donation
 router.post("/create-donation",authMiddleware.default,DonationController.createDonation);

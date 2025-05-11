@@ -71,6 +71,23 @@ class ApiRequest {
         }
     }
 
+    async updateProfile(reqBody) {
+
+
+        try{
+            let result = await axios.post(`${baseURL}update-profile`,reqBody,{
+                withCredentials: true});
+            console.log(result);
+            if (result.data.status === true) {
+                return result.data;
+            } else {
+                return false;
+            }
+        }catch (error){
+            console.log(error)
+        }
+    }
+
     async createDonation(reqBody) {
         console.log("reqBody:",reqBody);
         let result = await axios.post(`${baseURL}create-donation`, reqBody,{
@@ -299,7 +316,7 @@ class ApiRequest {
 
 
 }
-export const { register , fileUpload , login,userDetails,logout,createDonation ,findDonationList,createEvent,
+export const { register ,updateProfile, fileUpload , login,userDetails,logout,createDonation ,findDonationList,createEvent,
               OnGoingEventList,UpdateOnGoingEvent,FindEventById,ActivityList ,DonorDonationList,donateNow,
               ManageDonationList,volunteersList,UpdateManageDonation,VolunteerNewDonationList,UpdateNewVolDonation,
     DonationDetails,} = new ApiRequest();

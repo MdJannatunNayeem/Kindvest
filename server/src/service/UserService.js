@@ -1,6 +1,7 @@
 import UsersModel from "../models/UsersModel.js";
 import {EncodeToken} from "../utility/tokenUtility.js";
 import EmailSend from "../utility/emailUtility.js";
+import DonationEventModel from "../models/DonationEventModel.js";
 
 
 export const registerService = async (req) => {
@@ -158,6 +159,25 @@ export const UserDetailsService = async (req)=>{
         }
     }catch(e){
         return {status:'error',error:e.toString()};
+    }
+}
+
+//update
+export const updateProfile = async (req)=>{
+    try {
+        let reqBody = req.body;
+        let Id = req.headers.id;
+
+        console.log("Fetching from backend ",reqBody);
+
+        const {firstName,lastName,profileImg,contactNo,address} = reqBody;
+
+        let updateData = {firstName,lastName,profileImg,contactNo,address};
+        await UsersModel.findByIdAndUpdate(Id,updateData,{new:true});
+
+        return { status:true, data:updateData , msg:"Successfully Updated Profile" };
+    }catch (error){
+        console.log(error);
     }
 }
 

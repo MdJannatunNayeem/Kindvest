@@ -62,11 +62,9 @@ const MenuBar = () => {
                             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                                 <ul className="navbar-nav flex gap-x-5 float-right text-white gap-x-2">
                                     <li className="nav-item hover:bg-orange-400
-                                    hover:px-3 hover:py-[3px] hover: rounded-full p-[3px]">
+                                    hover:px-3 hover:py-[3px] hover: rounded-full p-[3px] active:bg-orange-400 active:px-3 active:py-[3px]">
                                         <NavLink to={"/"}>Home </NavLink></li>
-                                    <li className="nav-item hover:bg-orange-400
-                                    hover:px-3 hover:py-[3px] hover: rounded-full p-[3px]">
-                                        <NavLink to={"/"}>About Us </NavLink></li>
+
                                     <li className="nav-item hover:bg-orange-400 hover:px-3 hover:py-[3px] hover: rounded-full p-[3px]">
                                         <NavLink to={"/"}>Testimonials</NavLink></li>
                                     <li className="nav-item hover:bg-orange-400 hover:px-3 hover:py-[3px] hover: rounded-full p-[3px]">

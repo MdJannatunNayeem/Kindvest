@@ -1,4 +1,5 @@
 import * as UserService from "../service/UserService.js";
+import {updateProfile} from "../service/UserService.js";
 //import {UserDetailsService} from "../service/UserService.js";
 
 //user registration
@@ -38,5 +39,10 @@ export const changePassword=async(req,res)=>{
 
 export const UserDetails = async(req,res)=>{
     let result= await UserService.UserDetailsService(req);
+    return res.json(result);
+}
+
+export const updateProfileController=async(req,res)=>{
+    let result = await updateProfile(req);
     return res.json(result);
 }
