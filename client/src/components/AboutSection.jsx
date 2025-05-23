@@ -1,6 +1,23 @@
+import {useEffect, useState} from "react";
+import {DashboardInformation, DonorDonationList} from "../apiRequest/api.js";
 
 
 const AboutSection = () => {
+
+    const [informations, setInformations] = useState([]);
+
+    useEffect(() => {
+        (async () => {
+            try {
+                const List = await DashboardInformation();
+                setInformations(List.data);
+                console.log("from ui", List.data);
+            } catch (error) {
+                console.error("Error fetching :", error);
+            }
+        })();
+    }, []);
+
     return (
         <>
             <section className="flex flex-row md:flex-row items-center justify-center p-8 gap-10 bg-white ">
@@ -8,15 +25,15 @@ const AboutSection = () => {
                 <div className="container grid grid-cols-12 mb-5">
                 <div className="col-span-6 flex flex-col gap-6 ">
                     <div className=" flex flex-col justify-center items-center absolute top-150 left-10 bg-blue-100 text-center p-6 rounded-lg shadow-md w-32 h-50">
-                        <p className="text-2xl font-bold text-blue-600">9.5k</p>
+                        <p className="text-2xl font-bold text-blue-600">{informations.donors}</p>
                         <p className="mt-2 text-gray-700">Donar</p>
                     </div>
                     <div className="flex flex-col justify-center items-center bg-blue-100 absolute top-205 left-10 text-center p-6 rounded-lg shadow-md w-32 h-50">
-                        <p className="text-2xl font-bold text-blue-600">1250</p>
+                        <p className="text-2xl font-bold text-blue-600">{informations.volunteers}</p>
                         <p className="mt-2 text-gray-700">Volunteer</p>
                     </div>
                     <div className="flex flex-col justify-center items-center bg-blue-100 text-center absolute top-175 left-50 p-6 rounded-lg shadow-md w-32 h-50">
-                        <p className="text-2xl font-bold text-blue-600">50</p>
+                        <p className="text-2xl font-bold text-blue-600">{informations.events}</p>
                         <p className="mt-2 text-gray-700">Event</p>
                     </div>
                 </div>

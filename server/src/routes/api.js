@@ -6,6 +6,7 @@ import * as DonationController from "../controllers/DonationController.js";
 import * as EventController from "../controllers/DonationEventController.js";
 import * as DeleteFileUtility from "../utility/DeleteFileUtility.js"
 import * as SingleDonationController from "../controllers/SingleDonationController.js";
+import * as DashboardController from "../controllers/DashboardController.js";
 import upload from "../middlewares/FileUploads.js";
 //import uthMiddleware from "../middlewares/authMiddleware.js";
 const router = express.Router();
@@ -20,6 +21,8 @@ router.get('/user-details',authMiddleware.default, UserController.UserDetails);
 router.get('/volunteers',authMiddleware.default,SingleDonationController.findAllVolunteerController);
 router.post("/changed-password", authMiddleware.default , UserController.changePassword);
 router.post("/update-profile",authMiddleware.default,UserController.updateProfileController);
+router.get("/numbers-of-roles", DashboardController.numbersOfDonorVolunteerEventController);
+
 
 //admin donation
 router.post("/create-donation",authMiddleware.default,DonationController.createDonation);
@@ -46,6 +49,7 @@ router.get("/volunteer/donation",authMiddleware.default,SingleDonationController
 router.post("/:id/update-volunteer-remark/:status",SingleDonationController.updateVolNewDonationController);
 router.get("/donation-details/:id",authMiddleware.default,SingleDonationController.DonationDetailsController);
 
+//dashboard
 
 // file-route
 router.post("/file-upload", upload.single("file"), FileUploadController.fileUpload);

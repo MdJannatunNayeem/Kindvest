@@ -313,10 +313,20 @@ class ApiRequest {
         }
     }
 
+    async DashboardInformation() {
+        let result = await axios.get(`${baseURL}numbers-of-roles`);
+        console.log("result return",result);
+        if (result.data.status === true) {
+            return result.data;
+        } else {
+            return false;
+        }
+    }
+
 
 
 }
 export const { register ,updateProfile, fileUpload , login,userDetails,logout,createDonation ,findDonationList,createEvent,
               OnGoingEventList,UpdateOnGoingEvent,FindEventById,ActivityList ,DonorDonationList,donateNow,
               ManageDonationList,volunteersList,UpdateManageDonation,VolunteerNewDonationList,UpdateNewVolDonation,
-    DonationDetails,} = new ApiRequest();
+    DonationDetails,DashboardInformation} = new ApiRequest();
