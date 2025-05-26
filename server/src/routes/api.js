@@ -46,6 +46,9 @@ router.post("/:id/donate",authMiddleware.default,SingleDonationController.donate
 router.post("/:id/update-manage-donation",authMiddleware.default,SingleDonationController.updateMannageDonationController);
 router.get("/donorId/donation",authMiddleware.default,SingleDonationController.donorDonationController);
 router.get("/admin/mannage-donation",authMiddleware.default,SingleDonationController.mannageDonationController);
+router.get("/admin/completion-donation",authMiddleware.default,DashboardController.AdminCompletionController);
+router.get("/admin/pending-donation",authMiddleware.default,DashboardController.AdminPendingController);
+router.get("/admin/accept-donation",authMiddleware.default,DashboardController.AdminOnGoingController);
 
 //volunteer-donation
 router.get("/volunteer/donation",authMiddleware.default,SingleDonationController.volunteerNewDonationController);

@@ -357,10 +357,49 @@ class ApiRequest {
         }
     }
 
+    async AdminCompletionDonation() {
+        let result = await axios.get(`${baseURL}admin/completion-donation`,{
+            withCredentials: true,
+        });
+        //console.log("result return",result);
+        if (result.data.status === true) {
+            return result.data;
+        } else {
+            return false;
+        }
+    }
+    async AdminAcceptDonation() {
+        let result = await axios.get(`${baseURL}admin/accept-donation`,{
+            withCredentials: true,
+        });
+        //console.log("result return",result);
+        if (result.data.status === true) {
+            return result.data;
+        } else {
+            return false;
+        }
+    }
+
+
+    async AdminPendingDonation() {
+        let result = await axios.get(`${baseURL}admin/pending-donation`,{
+            withCredentials: true,
+        });
+        //console.log("result return",result);
+        if (result.data.status === true) {
+            return result.data;
+        } else {
+            return false;
+        }
+    }
+
+
+
 
 
 }
 export const { register ,updateProfile, fileUpload , login,userDetails,logout,createDonation ,findDonationList,createEvent,
               OnGoingEventList,UpdateOnGoingEvent,FindEventById,ActivityList ,DonorDonationList,donateNow,
               ManageDonationList,volunteersList,UpdateManageDonation,VolunteerNewDonationList,UpdateNewVolDonation,
-    DonationDetails,DashboardInformation,AdminDashboardStat,VolDashboardStat,DonorDashboardStat} = new ApiRequest();
+    DonationDetails,DashboardInformation,AdminDashboardStat,VolDashboardStat,DonorDashboardStat,AdminAcceptDonation,AdminPendingDonation,
+    AdminCompletionDonation} = new ApiRequest();

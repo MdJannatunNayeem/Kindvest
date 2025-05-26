@@ -14,6 +14,9 @@ import DonateFormPage from "./pages/DonateFormPage.jsx";
 import ManageDonationUpdatePage from "./pages/ManageDonationUpdatePage.jsx";
 import DonorDonationDetailsPage from "./pages/DonorDonationDetailsPage.jsx";
 import ProfilePage from "./pages/ProfilePage.jsx";
+import AdminCompletionPage from "./pages/AdminCompletionPage.jsx";
+import AdminPendingPage from "./pages/AdminPendingPage.jsx";
+import AdminAcceptPage from "./pages/AdminAcceptPage.jsx";
 
 
 function App() {
@@ -36,6 +39,9 @@ function App() {
                <Route path="/:id/donate" element={<DonateFormPage />} />
                <Route path="/:id/update-manage-donation" element={<ManageDonationUpdatePage />} />
                <Route path="/donation-details/:id" element={<DonorDonationDetailsPage />} />
+               <Route path="/admin/completion-donation" element={<AdminCompletionPage />} />
+               <Route path="/admin/pending-donation" element={<AdminPendingPage />} />
+               <Route path="/admin/accept-donation" element={<AdminAcceptPage />} />
                <Route path="/user-details" element={<ProfilePage />} />
            </Routes>
        </BrowserRouter>

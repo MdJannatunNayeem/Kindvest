@@ -5,10 +5,12 @@ import {BiSolidMessageRoundedEdit} from "react-icons/bi";
 import {FcProcess} from "react-icons/fc";
 import {useEffect, useState} from "react";
 import {AdminDashboardStat} from "../apiRequest/api.js";
+import {useNavigate} from "react-router-dom";
 
 
 const AdminDashboard = () => {
     const [inform,setInform] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         (async () => {
@@ -35,10 +37,11 @@ const AdminDashboard = () => {
                     </div>
 
 
-                    <div className="col-span-4  mx-4 mb-2 p-10 mt-3 shadow-xl rounded-xl border-[1.5px] border-gray-100">
+                    <div
+                        className="col-span-4  mx-4 mb-2 p-10 mt-3 shadow-xl rounded-xl border-[1.5px] border-gray-100">
                         <div className="flex flex-row gap-2  justify-center mb-2">
                             <span>
-                                <MdOutlineIncompleteCircle className="w-12 h-8 text-yellow-500" />
+                                <MdOutlineIncompleteCircle className="w-12 h-8 text-yellow-500"/>
                             </span>
                             <span className="text-[18px] font-semibold"> Total Completion Donation</span>
 
@@ -46,9 +49,16 @@ const AdminDashboard = () => {
                         </div>
                         <hr className="w-70 ml-3 border-[1px] border-orange-500"/>
                         <h4 className="flex justify-center my-3">{inform.AdminReceived}</h4>
+                        <div className="flex items-center justify-end">
+                            <button
+                                onClick={()=>navigate('/admin/completion-donation')}
+                                className="bg-blue-400 text-[11px] text-bold text-white px-2 rounded-md hover:bg-orange-500"> Details
+                            </button>
+                        </div>
                     </div>
 
-                    <div className="col-span-4  mx-4 mt-3 mb-2 p-10 shadow-xl rounded-xl border-[1.5px] border-gray-100">
+                    <div
+                        className="col-span-4  mx-4 mt-3 mb-2 p-10 shadow-xl rounded-xl border-[1.5px] border-gray-100">
                         <div className="flex flex-row gap-2  justify-center mb-2">
                             <span>
                               <BiSolidMessageRoundedEdit className="w-12 h-8 text-red-600"/>
@@ -59,8 +69,14 @@ const AdminDashboard = () => {
                         </div>
                         <hr className="w-70 ml-7 border-[1px] border-orange-500"/>
                         <h4 className="flex justify-center my-3">{inform.AdminPending}</h4>
+                        <div className="flex items-center justify-end">
+                            <button
+                                onClick={()=>navigate('/admin/pending-donation')}
+                                className="bg-blue-400 text-[11px] text-bold text-white px-2 rounded-md hover:bg-orange-500"> Details </button>
+                        </div>
                     </div>
-                    <div className="col-span-4  mx-4 mt-3 mb-2 p-10 shadow-xl rounded-xl border-[1.5px] border-gray-100">
+                    <div
+                        className="col-span-4  mx-4 mt-3 mb-2 p-10 shadow-xl rounded-xl border-[1.5px] border-gray-100">
                         <div className="flex flex-row gap-2  justify-center mb-2">
                             <span>
                                 <FcProcess className="w-12 h-8"/>
@@ -71,6 +87,12 @@ const AdminDashboard = () => {
                         </div>
                         <hr className="w-70 ml-7 border-[1px] border-orange-500"/>
                         <h4 className="flex justify-center my-3">{inform.AdminAccepted}</h4>
+                        <div className="flex items-center justify-end">
+                            <button
+                                onClick={()=>navigate('/admin/accept-donation')}
+                                className="bg-blue-400 text-[11px] text-bold text-white px-2 rounded-md hover:bg-orange-500"> Details
+                            </button>
+                        </div>
                     </div>
 
                 </div>
