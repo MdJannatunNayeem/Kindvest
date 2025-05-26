@@ -17,6 +17,14 @@ import ProfilePage from "./pages/ProfilePage.jsx";
 import AdminCompletionPage from "./pages/AdminCompletionPage.jsx";
 import AdminPendingPage from "./pages/AdminPendingPage.jsx";
 import AdminAcceptPage from "./pages/AdminAcceptPage.jsx";
+import VolunteerDeliveryTable from "./components/VolunteerDeliveryTable.jsx";
+import VolunteerDeliveryTablePage from "./pages/VolunteerDeliveryTablePage.jsx";
+import VolunteerPendingPage from "./pages/VolunteerPendingPage.jsx";
+import VolunteerReceivedPage from "./pages/VolunteerReceivedPage.jsx";
+import DonorOnGoingPage from "./pages/DonorOnGoingPage.jsx";
+import DonorCompletePage from "./pages/DonorCompletePage.jsx";
+import DonorPendingPage from "./pages/DonorPendingPage.jsx";
+import VolunteerListPage from "./pages/VolunteerListPage.jsx";
 
 
 function App() {
@@ -42,6 +50,13 @@ function App() {
                <Route path="/admin/completion-donation" element={<AdminCompletionPage />} />
                <Route path="/admin/pending-donation" element={<AdminPendingPage />} />
                <Route path="/admin/accept-donation" element={<AdminAcceptPage />} />
+               <Route path="/volunteer/delivered-donation" element={<VolunteerDeliveryTablePage/>} />
+               <Route path="/volunteer/pending-donation" element={<VolunteerPendingPage/>} />
+               <Route path="/volunteer/received-donation" element={<VolunteerReceivedPage/>} />
+               <Route path="/donor/accept-donation" element={<DonorOnGoingPage/>} />
+               <Route path="/donor/received-donation" element={<DonorCompletePage/>} />
+               <Route path="/donor/pending-donation" element={<DonorPendingPage/>} />
+               <Route path="/all-volunteers" element={<VolunteerListPage/>} />
                <Route path="/user-details" element={<ProfilePage />} />
            </Routes>
        </BrowserRouter>

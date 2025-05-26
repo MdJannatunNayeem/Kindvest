@@ -18,7 +18,9 @@ router.get("/logout", UserController.logout);
 router.get("/OTP/:email",UserController.useOTP);
 router.get('/VerifyLogin/:email/:otp',UserController.verifyOTP);
 router.get('/user-details',authMiddleware.default, UserController.UserDetails);
+router.get('/all-volunteers',authMiddleware.default,UserController.AllVolunteerController);
 router.get('/volunteers',authMiddleware.default,SingleDonationController.findAllVolunteerController);
+
 router.post("/changed-password", authMiddleware.default , UserController.changePassword);
 router.post("/update-profile",authMiddleware.default,UserController.updateProfileController);
 router.get("/numbers-of-roles", DashboardController.numbersOfDonorVolunteerEventController);
@@ -52,6 +54,14 @@ router.get("/admin/accept-donation",authMiddleware.default,DashboardController.A
 
 //volunteer-donation
 router.get("/volunteer/donation",authMiddleware.default,SingleDonationController.volunteerNewDonationController);
+router.get("/volunteer/delivered-donation",authMiddleware.default,DashboardController.volDeliveryDonationController);
+router.get("/volunteer/pending-donation",authMiddleware.default,DashboardController.volPendingDonationController);
+router.get("/volunteer/received-donation",authMiddleware.default,DashboardController.volDReceivedDonationController);
+
+router.get("/donor/accept-donation",authMiddleware.default,DashboardController.DonorOnGoingDonationController);
+router.get("/donor/pending-donation",authMiddleware.default,DashboardController.DonorPendingDonationController);
+router.get("/donor/received-donation",authMiddleware.default,DashboardController.DonorCompleteDonationController);
+
 router.post("/:id/update-volunteer-remark/:status",SingleDonationController.updateVolNewDonationController);
 router.get("/donation-details/:id",authMiddleware.default,SingleDonationController.DonationDetailsController);
 

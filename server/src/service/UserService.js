@@ -2,6 +2,7 @@ import UsersModel from "../models/UsersModel.js";
 import {EncodeToken} from "../utility/tokenUtility.js";
 import EmailSend from "../utility/emailUtility.js";
 import DonationEventModel from "../models/DonationEventModel.js";
+import usersModel from "../models/UsersModel.js";
 
 
 export const registerService = async (req) => {
@@ -181,3 +182,20 @@ export const updateProfile = async (req)=>{
     }
 }
 
+//total volunteer
+export const AllVolunteers = async (req)=>{
+    try {
+        let volunteers = await usersModel.aggregate([
+            {
+                $match:{
+                    role: 'volunteer',
+                }
+            },
+
+        ]);
+        return { status:true, data:volunteers , msg:"sucessfully found volunteers"};
+
+    }catch (error){
+        console.log(error)
+    }
+}

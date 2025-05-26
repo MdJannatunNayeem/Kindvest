@@ -381,8 +381,91 @@ class ApiRequest {
     }
 
 
+
     async AdminPendingDonation() {
         let result = await axios.get(`${baseURL}admin/pending-donation`,{
+            withCredentials: true,
+        });
+        //console.log("result return",result);
+        if (result.data.status === true) {
+            return result.data;
+        } else {
+            return false;
+        }
+    }
+
+    async VolDeliveredDonation() {
+        let result = await axios.get(`${baseURL}volunteer/delivered-donation`,{
+            withCredentials: true,
+        });
+        //console.log("result return",result);
+        if (result.data.status === true) {
+            return result.data;
+        } else {
+            return false;
+        }
+    }
+
+    async VolReceivedDonation() {
+        let result = await axios.get(`${baseURL}volunteer/received-donation`,{
+            withCredentials: true,
+        });
+        //console.log("result return",result);
+        if (result.data.status === true) {
+            return result.data;
+        } else {
+            return false;
+        }
+    }
+
+    async VolPendingDonation() {
+        let result = await axios.get(`${baseURL}volunteer/pending-donation`,{
+            withCredentials: true,
+        });
+        //console.log("result return",result);
+        if (result.data.status === true) {
+            return result.data;
+        } else {
+            return false;
+        }
+    }
+
+    async DonorPendingDonation() {
+        let result = await axios.get(`${baseURL}donor/pending-donation`,{
+            withCredentials: true,
+        });
+        //console.log("result return",result);
+        if (result.data.status === true) {
+            return result.data;
+        } else {
+            return false;
+        }
+    }
+    async DonorCompleteDonation() {
+        let result = await axios.get(`${baseURL}donor/received-donation`,{
+            withCredentials: true,
+        });
+        //console.log("result return",result);
+        if (result.data.status === true) {
+            return result.data;
+        } else {
+            return false;
+        }
+    }
+    async DonorOnGoingDonation() {
+        let result = await axios.get(`${baseURL}donor/accept-donation`,{
+            withCredentials: true,
+        });
+        //console.log("result return",result);
+        if (result.data.status === true) {
+            return result.data;
+        } else {
+            return false;
+        }
+    }
+
+    async VolunteersTotalList() {
+        let result = await axios.get(`${baseURL}all-volunteers`,{
             withCredentials: true,
         });
         //console.log("result return",result);
@@ -396,10 +479,10 @@ class ApiRequest {
 
 
 
-
 }
 export const { register ,updateProfile, fileUpload , login,userDetails,logout,createDonation ,findDonationList,createEvent,
               OnGoingEventList,UpdateOnGoingEvent,FindEventById,ActivityList ,DonorDonationList,donateNow,
               ManageDonationList,volunteersList,UpdateManageDonation,VolunteerNewDonationList,UpdateNewVolDonation,
     DonationDetails,DashboardInformation,AdminDashboardStat,VolDashboardStat,DonorDashboardStat,AdminAcceptDonation,AdminPendingDonation,
-    AdminCompletionDonation} = new ApiRequest();
+    AdminCompletionDonation,VolDeliveredDonation,VolReceivedDonation,VolPendingDonation,DonorOnGoingDonation,DonorPendingDonation,
+    DonorCompleteDonation,VolunteersTotalList} = new ApiRequest();

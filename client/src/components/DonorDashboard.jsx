@@ -4,12 +4,14 @@ import { MdPendingActions} from "react-icons/md";
 import {FcApproval} from "react-icons/fc";
 import {GrCompliance} from "react-icons/gr";
 import {useEffect, useState} from "react";
-import {AdminDashboardStat, DonorDashboardStat} from "../apiRequest/api.js";
+import { DonorDashboardStat} from "../apiRequest/api.js";
+import {useNavigate} from "react-router-dom";
 
 
 
 const DonorDashboard = () => {
     const [inform,setInform] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         (async () => {
@@ -37,10 +39,11 @@ const DonorDashboard = () => {
                     </div>
 
 
-                    <div className="col-span-4  mx-4 mb-2 p-10 mt-3 shadow-2xl rounded-xl border-[1.5px] border-gray-200 bg-gray-5">
+                    <div
+                        className="col-span-4  mx-4 mb-2 p-10 mt-3 shadow-2xl rounded-xl border-[1.5px] border-gray-200 bg-gray-5">
                         <div className="flex flex-row gap-2  items-center justify-center mb-2">
                             <span>
-                                <FcApproval className="w-12 h-8" />
+                                <FcApproval className="w-12 h-8"/>
                             </span>
                             <span className="text-[14px] font-semibold"> Total Donation Approved</span>
 
@@ -48,9 +51,16 @@ const DonorDashboard = () => {
                         </div>
                         <hr className="w-70 ml-3 border-[1px] border-orange-500"/>
                         <h4 className="flex justify-center my-3">{inform.DonorAccepted}</h4>
+                        <div className="flex items-center justify-end">
+                            <button
+                                onClick={() => navigate('/donor/accept-donation')}
+                                className="bg-blue-400 text-[11px] text-bold text-white px-2 rounded-md hover:bg-orange-500"> Details
+                            </button>
+                        </div>
                     </div>
 
-                    <div className="col-span-4  mx-4 mt-3 mb-2 p-10 shadow-2xl rounded-xl border-[1.5px] border-gray-200 bg-gray-5">
+                    <div
+                        className="col-span-4  mx-4 mt-3 mb-2 p-10 shadow-2xl rounded-xl border-[1.5px] border-gray-200 bg-gray-5">
                         <div className="flex flex-row gap-2  items-center justify-center mb-2">
                             <span>
                               <MdPendingActions className="w-12 h-8 text-red-500"/>
@@ -61,8 +71,15 @@ const DonorDashboard = () => {
                         </div>
                         <hr className="w-70 ml-7 border-[1px] border-orange-500"/>
                         <h4 className="flex justify-center my-3">{inform.DonorPending}</h4>
+                        <div className="flex items-center justify-end">
+                            <button
+                                onClick={() => navigate('/donor/pending-donation')}
+                                className="bg-blue-400 text-[11px] text-bold text-white px-2 rounded-md hover:bg-orange-500"> Details
+                            </button>
+                        </div>
                     </div>
-                    <div className="col-span-4  mx-4 mt-3 mb-2 p-10 shadow-2xl rounded-xl border-[1.5px] border-gray-200 bg-gray-5">
+                    <div
+                        className="col-span-4  mx-4 mt-3 mb-2 p-10 shadow-2xl rounded-xl border-[1.5px] border-gray-200 bg-gray-5">
                         <div className="flex flex-row  items-center justify-center mb-2">
                             <span>
                                 <GrCompliance className="w-12 h-8 text-green-400"/>
@@ -73,6 +90,12 @@ const DonorDashboard = () => {
                         </div>
                         <hr className="w-70 ml-4 border-[1px] border-orange-500"/>
                         <h4 className="flex justify-center my-3">{inform.DonorReceived}</h4>
+                        <div className="flex items-center justify-end">
+                            <button
+                                onClick={() => navigate('/donor/received-donation')}
+                                className="bg-blue-400 text-[11px] text-bold text-white px-2 rounded-md hover:bg-orange-500"> Details
+                            </button>
+                        </div>
                     </div>
 
                 </div>

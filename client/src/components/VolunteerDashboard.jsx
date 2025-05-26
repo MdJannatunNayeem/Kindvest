@@ -2,10 +2,12 @@ import {IoGiftSharp, IoNotifications, IoTimer} from "react-icons/io5";
 import { MdOutlineWork} from "react-icons/md";
 import {useEffect, useState} from "react";
 import {AdminDashboardStat, VolDashboardStat} from "../apiRequest/api.js";
+import {useNavigate} from "react-router-dom";
 
 
 const VolunteerDashboard = () => {
     const [inform,setInform] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         (async () => {
@@ -32,20 +34,28 @@ const VolunteerDashboard = () => {
                     </div>
 
 
-                    <div className="col-span-4  mx-4 mb-2 p-10 mt-3 shadow-2xl rounded-xl border-[1.5px] border-gray-200 bg-gray-5">
+                    <div
+                        className="col-span-4  mx-4 mb-2 p-10 mt-3 shadow-2xl rounded-xl border-[1.5px] border-gray-200 bg-gray-5">
                         <div className="flex flex-row gap-2  items-center justify-center mb-2">
                             <span>
-                                <IoGiftSharp className="w-12 h-8 text-orange-600" />
+                                <IoGiftSharp className="w-12 h-8 text-orange-600"/>
                             </span>
-                            <span className="text-[14px] font-semibold"> Total Donation Received</span>
+                            <span className="text-[14px] font-semibold"> Total Donation Delivered</span>
 
 
                         </div>
                         <hr className="w-70 ml-3 border-[1px] border-orange-500"/>
-                        <h4 className="flex justify-center my-3">{inform.received}</h4>
+                        <h4 className="flex justify-center my-3">{inform.delivered}</h4>
+                        <div className="flex items-center justify-end">
+                            <button
+                                onClick={() => navigate('/volunteer/delivered-donation')}
+                                className="bg-blue-400 text-[11px] text-bold text-white px-2 rounded-md hover:bg-orange-500"> Details
+                            </button>
+                        </div>
                     </div>
 
-                    <div className="col-span-4  mx-4 mt-3 mb-2 p-10 shadow-2xl rounded-xl border-[1.5px] border-gray-200 bg-gray-5">
+                    <div
+                        className="col-span-4  mx-4 mt-3 mb-2 p-10 shadow-2xl rounded-xl border-[1.5px] border-gray-200 bg-gray-5">
                         <div className="flex flex-row gap-2  items-center justify-center mb-2">
                             <span>
                               <MdOutlineWork className="w-12 h-8 text-teal-300"/>
@@ -56,8 +66,15 @@ const VolunteerDashboard = () => {
                         </div>
                         <hr className="w-70 ml-7 border-[1px] border-orange-500"/>
                         <h4 className="flex justify-center my-3">{inform.pending}</h4>
+                        <div className="flex items-center justify-end">
+                            <button
+                                onClick={() => navigate('/volunteer/pending-donation')}
+                                className="bg-blue-400 text-[11px] text-bold text-white px-2 rounded-md hover:bg-orange-500"> Details
+                            </button>
+                        </div>
                     </div>
-                    <div className="col-span-4  mx-4 mt-3 mb-2 p-10 shadow-2xl rounded-xl border-[1.5px] border-gray-200 bg-gray-5">
+                    <div
+                        className="col-span-4  mx-4 mt-3 mb-2 p-10 shadow-2xl rounded-xl border-[1.5px] border-gray-200 bg-gray-5">
                         <div className="flex flex-row  items-center justify-center mb-2">
                             <span>
                                 <IoTimer className="w-12 h-8 text-green-400"/>
@@ -67,7 +84,13 @@ const VolunteerDashboard = () => {
 
                         </div>
                         <hr className="w-70 ml-4 border-[1px] border-orange-500"/>
-                        <h4 className="flex justify-center my-3">{inform.delivered}</h4>
+                        <h4 className="flex justify-center my-3">{inform.received}</h4>
+                        <div className="flex items-center justify-end">
+                            <button
+                                onClick={() => navigate('/volunteer/received-donation')}
+                                className="bg-blue-400 text-[11px] text-bold text-white px-2 rounded-md hover:bg-orange-500"> Details
+                            </button>
+                        </div>
                     </div>
 
                 </div>
