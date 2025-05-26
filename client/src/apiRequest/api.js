@@ -323,10 +323,44 @@ class ApiRequest {
         }
     }
 
+    async AdminDashboardStat() {
+        let result = await axios.get(`http://localhost:5050/api/admin-dashboard-stat`,{
+            withCredentials: true,
+        });
+       // console.log("result return",result);
+        if (result.data.status === true) {
+            return result.data;
+        } else {
+            return false;
+        }
+    }
+    async DonorDashboardStat() {
+        let result = await axios.get(`${baseURL}donor-dashboard-stat`,{
+            withCredentials: true,
+        });
+        //console.log("result return",result);
+        if (result.data.status === true) {
+            return result.data;
+        } else {
+            return false;
+        }
+    }
+    async VolDashboardStat() {
+        let result = await axios.get(`${baseURL}volunteer-dashboard-stat`,{
+            withCredentials: true,
+        });
+        //console.log("result return",result);
+        if (result.data.status === true) {
+            return result.data;
+        } else {
+            return false;
+        }
+    }
+
 
 
 }
 export const { register ,updateProfile, fileUpload , login,userDetails,logout,createDonation ,findDonationList,createEvent,
               OnGoingEventList,UpdateOnGoingEvent,FindEventById,ActivityList ,DonorDonationList,donateNow,
               ManageDonationList,volunteersList,UpdateManageDonation,VolunteerNewDonationList,UpdateNewVolDonation,
-    DonationDetails,DashboardInformation} = new ApiRequest();
+    DonationDetails,DashboardInformation,AdminDashboardStat,VolDashboardStat,DonorDashboardStat} = new ApiRequest();

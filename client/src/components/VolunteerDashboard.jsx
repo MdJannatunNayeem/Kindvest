@@ -1,8 +1,23 @@
 import {IoGiftSharp, IoNotifications, IoTimer} from "react-icons/io5";
 import { MdOutlineWork} from "react-icons/md";
+import {useEffect, useState} from "react";
+import {AdminDashboardStat, VolDashboardStat} from "../apiRequest/api.js";
 
 
 const VolunteerDashboard = () => {
+    const [inform,setInform] = useState([]);
+
+    useEffect(() => {
+        (async () => {
+            try {
+                const result = await VolDashboardStat();
+                //console.log("api",result);
+                setInform(result.data);
+            } catch (error) {
+                console.error('Error fetching :', error);
+            }
+        })();
+    }, []);
     return (
         <>
             <section className="my-3 mx-2 bg-white">
@@ -27,7 +42,7 @@ const VolunteerDashboard = () => {
 
                         </div>
                         <hr className="w-70 ml-3 border-[1px] border-orange-500"/>
-                        <h4 className="flex justify-center my-3">10</h4>
+                        <h4 className="flex justify-center my-3">{inform.received}</h4>
                     </div>
 
                     <div className="col-span-4  mx-4 mt-3 mb-2 p-10 shadow-2xl rounded-xl border-[1.5px] border-gray-200 bg-gray-5">
@@ -40,7 +55,7 @@ const VolunteerDashboard = () => {
 
                         </div>
                         <hr className="w-70 ml-7 border-[1px] border-orange-500"/>
-                        <h4 className="flex justify-center my-3">10</h4>
+                        <h4 className="flex justify-center my-3">{inform.pending}</h4>
                     </div>
                     <div className="col-span-4  mx-4 mt-3 mb-2 p-10 shadow-2xl rounded-xl border-[1.5px] border-gray-200 bg-gray-5">
                         <div className="flex flex-row  items-center justify-center mb-2">
@@ -52,7 +67,7 @@ const VolunteerDashboard = () => {
 
                         </div>
                         <hr className="w-70 ml-4 border-[1px] border-orange-500"/>
-                        <h4 className="flex justify-center my-3">10</h4>
+                        <h4 className="flex justify-center my-3">{inform.delivered}</h4>
                     </div>
 
                 </div>

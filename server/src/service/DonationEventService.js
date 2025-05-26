@@ -118,6 +118,7 @@ export const AllEvent = async (req)=>{
 
             {$lookup:{from:"donations", localField:"donationId",foreignField:"_id" , as:"donationDetails" }},
             {$unwind:"$donationDetails"},
+
             {
                 $project: {
                     _id: 1,
@@ -129,6 +130,10 @@ export const AllEvent = async (req)=>{
                     "donationDetails._id": 1,
                     createdAt: 1
                 }
+
+            },
+            {
+                $sort: { createdAt: -1 } // Sort by createdAt in descending order
             }
 
         ]);

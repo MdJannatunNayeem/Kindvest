@@ -130,7 +130,8 @@ const Activity =()=>{
                                         <p className="text-sm font-semibold font-mono flex-shrink-0 whitespace-nowrap">
                                             {new Date(event.createdAt).toLocaleString('en-GB', {
                                                 day: '2-digit',
-                                                month: 'long'
+                                                month: 'short',
+                                                year: 'numeric'
                                             })}
                                         </p>
                                     </div>

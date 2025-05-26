@@ -22,6 +22,9 @@ router.get('/volunteers',authMiddleware.default,SingleDonationController.findAll
 router.post("/changed-password", authMiddleware.default , UserController.changePassword);
 router.post("/update-profile",authMiddleware.default,UserController.updateProfileController);
 router.get("/numbers-of-roles", DashboardController.numbersOfDonorVolunteerEventController);
+router.get("/admin-dashboard-stat",authMiddleware.default,DashboardController.AdminDashboardStatController);
+router.get("/volunteer-dashboard-stat",authMiddleware.default,DashboardController.VolDashboardStatController);
+router.get("/donor-dashboard-stat",authMiddleware.default,DashboardController.DonorDashboardStatController);
 
 
 //admin donation
@@ -50,6 +53,7 @@ router.post("/:id/update-volunteer-remark/:status",SingleDonationController.upda
 router.get("/donation-details/:id",authMiddleware.default,SingleDonationController.DonationDetailsController);
 
 //dashboard
+//router.get("/admin-dashboard-stat",authMiddleware.default,DashboardController.AdminDashboardStatController);
 
 // file-route
 router.post("/file-upload", upload.single("file"), FileUploadController.fileUpload);

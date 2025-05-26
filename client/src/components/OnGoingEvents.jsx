@@ -32,9 +32,10 @@ const OnGoingEvents = () => {
                     <tr className="bg-black text-white">
                         <th className="w-1/6 rounded-tl-xl px-4 py-2 font-mono font-semibold text-left">Title</th>
                         <th className="w-2/6 px-4 py-2 font-mono font-semibold text-left">Description</th>
+                        <th className="w-2/6 px-4 py-2 font-mono font-semibold text-left">Created Date</th>
                         <th className="w-1/6 px-4 py-2 font-mono font-semibold text-left">Area Name</th>
                         <th className="w-1/6 px-4 py-2 font-mono font-semibold text-center">Status</th>
-                        <th className="w-1/6 rounded-tr-xl px-4 py-2 font-mono font-semibold text-left">Action</th>
+                        <th className="w-1/6 rounded-tr-xl px-4 py-2 font-mono font-semibold text-center">Action</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -43,6 +44,11 @@ const OnGoingEvents = () => {
                             <tr key={event._id} className="bg-white hover:bg-gray-200">
                                 <td className="px-4 py-2 border-t">{event?.donationDetails?.title}</td>
                                 <td className="px-4 py-2 border-t">{event.description}</td>
+                                <td className="px-4 py-2 border-t">{new Date(event.createdAt).toLocaleString('en-GB', {
+                                    day: '2-digit',
+                                    month: 'long',
+                                    year: 'numeric'
+                                })}</td>
                                 <td className="px-4 py-2 border-t">{event.areaName}</td>
                                 <td className="px-4 py-2 border-t capitalize text-center">
                                     <p className={`text-white inline-block rounded-full px-3 py-1 ${
