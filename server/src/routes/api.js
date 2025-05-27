@@ -7,7 +7,9 @@ import * as EventController from "../controllers/DonationEventController.js";
 import * as DeleteFileUtility from "../utility/DeleteFileUtility.js"
 import * as SingleDonationController from "../controllers/SingleDonationController.js";
 import * as DashboardController from "../controllers/DashboardController.js";
+import * as PaymentController from "../controllers/PaymentController.js";
 import upload from "../middlewares/FileUploads.js";
+import {initiatePayment} from "../service/PaymentService.js";
 //import uthMiddleware from "../middlewares/authMiddleware.js";
 const router = express.Router();
 
@@ -66,6 +68,12 @@ router.post("/:id/update-volunteer-remark/:status",SingleDonationController.upda
 router.get("/donation-details/:id",authMiddleware.default,SingleDonationController.DonationDetailsController);
 
 //dashboard
+router.post('/payment',authMiddleware.default,PaymentController.initiatePaymentController)
+router.post('/payment/success/:transactionId',authMiddleware.default,PaymentController.successPaymentController)
+router.post('/payment/fail/:transactionId',authMiddleware.default,PaymentController.failPaymentController)
+router.post('/payment/cancel/:transactionId',authMiddleware.default,PaymentController.cancelPaymentController)
+router.get('/donorId/payment-details',authMiddleware.default,PaymentController.getPaymentsByDonor);
+router.get('/admin/payment-details',authMiddleware.default,PaymentController.getPaymentsByAdmin);
 //router.get("/admin-dashboard-stat",authMiddleware.default,DashboardController.AdminDashboardStatController);
 
 // file-route

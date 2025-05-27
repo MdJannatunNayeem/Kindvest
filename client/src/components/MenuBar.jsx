@@ -76,11 +76,13 @@ const MenuBar = () => {
 
                                                         <li className="nav-item hover:bg-orange-400 hover:px-3 hover:py-[3px] hover: rounded-full p-[3px] ">
                                                             <NavLink to={"/all-volunteers"}>Volunteer List</NavLink></li>
+                                                        <li className="nav-item hover:bg-orange-400 hover:px-3 hover:py-[3px] hover: rounded-full p-[3px] ">
+                                                            <NavLink to={"/admin/payment-details"}>Payment List</NavLink></li>
                                                     </>
                                                 ) : profile.role === "donor" ? (
                                                     <>
                                                         <li className="nav-item hover:bg-orange-400 hover:px-3 hover:py-[3px] hover: rounded-full p-[3px]">
-                                                            <NavLink to={"/"}>Donation History</NavLink></li>
+                                                            <NavLink to={"/donorId/payment-details"}>Payment Donations</NavLink></li>
 
                                                     </>
                                                 ) : (

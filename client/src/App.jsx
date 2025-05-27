@@ -25,6 +25,12 @@ import DonorOnGoingPage from "./pages/DonorOnGoingPage.jsx";
 import DonorCompletePage from "./pages/DonorCompletePage.jsx";
 import DonorPendingPage from "./pages/DonorPendingPage.jsx";
 import VolunteerListPage from "./pages/VolunteerListPage.jsx";
+import PaymentPage from "./pages/PaymentPage.jsx";
+import PaymentSuccess from "./pages/PaymentSuccess.jsx";
+import PaymentFail from "./pages/PaymentFail.jsx";
+import PaymentCancel from "./pages/PaymentCancel.jsx";
+import PaymentsTablePage from "./pages/PaymentsTablePage.jsx";
+import AdminPaymentDonationPage from "./pages/AdminPaymentDonationPage.jsx";
 
 
 function App() {
@@ -58,6 +64,12 @@ function App() {
                <Route path="/donor/pending-donation" element={<DonorPendingPage/>} />
                <Route path="/all-volunteers" element={<VolunteerListPage/>} />
                <Route path="/user-details" element={<ProfilePage />} />
+               <Route path="/payment" element={<PaymentPage />} />
+               <Route path="/payment/success/:transactionId" element={<PaymentSuccess />} />
+               <Route path="/payment/fail/:transactionId" element={<PaymentFail />} />
+               <Route path="/payment/cancel/:transactionId" element={<PaymentCancel />} />
+               <Route path="/donorId/payment-details" element={<PaymentsTablePage />} />
+               <Route path="/admin/payment-details" element={<AdminPaymentDonationPage />} />
            </Routes>
        </BrowserRouter>
     </>
