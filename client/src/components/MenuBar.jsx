@@ -66,7 +66,7 @@ const MenuBar = () => {
                                         <NavLink to={"/"}>Home </NavLink></li>
 
                                     <li className="nav-item hover:bg-orange-400 hover:px-3 hover:py-[3px] hover: rounded-full p-[3px]">
-                                        <NavLink to={"/"}>Testimonials</NavLink></li>
+                                        <NavLink to={"/feedbacks"}>Testimonials</NavLink></li>
                                     <li className="nav-item hover:bg-orange-400 hover:px-3 hover:py-[3px] hover: rounded-full p-[3px]">
                                         <NavLink to={"/activity"}>All Activity</NavLink></li>
 

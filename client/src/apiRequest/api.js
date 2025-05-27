@@ -514,6 +514,33 @@ class ApiRequest {
         }
     }
 
+    async TotalFeedbacksList() {
+        let result = await axios.get(`${baseURL}donorId/get-feedback`,{
+            withCredentials: true,
+        });
+        console.log("result return",result.data);
+        if (result.data.status === true) {
+            return result.data;
+        } else {
+            return false;
+        }
+    }
+
+    async createFeedback(data){
+        let result = await axios.post(`${baseURL}create-feedback`,data,{
+            withCredentials: true,
+        });
+
+       // console.log("result return",res);
+        if (result.data.status === true) {
+           // console.log("result return");
+            SuccessToast("Successfully Done")
+            return true;
+        } else {
+            ErrorToast("Error ");
+        }
+    }
+
 
 }
 export const { register ,updateProfile, fileUpload , login,userDetails,logout,createDonation ,findDonationList,createEvent,
@@ -521,4 +548,5 @@ export const { register ,updateProfile, fileUpload , login,userDetails,logout,cr
               ManageDonationList,volunteersList,UpdateManageDonation,VolunteerNewDonationList,UpdateNewVolDonation,
     DonationDetails,DashboardInformation,AdminDashboardStat,VolDashboardStat,DonorDashboardStat,AdminAcceptDonation,AdminPendingDonation,
     AdminCompletionDonation,VolDeliveredDonation,VolReceivedDonation,VolPendingDonation,DonorOnGoingDonation,DonorPendingDonation,
-    DonorCompleteDonation,VolunteersTotalList,initiatePayment,DonorTotalPaymentsList,TotalPaymentsList} = new ApiRequest();
+    DonorCompleteDonation,VolunteersTotalList,initiatePayment,DonorTotalPaymentsList,TotalPaymentsList,TotalFeedbacksList,
+    createFeedback} = new ApiRequest();

@@ -31,6 +31,7 @@ import PaymentFail from "./pages/PaymentFail.jsx";
 import PaymentCancel from "./pages/PaymentCancel.jsx";
 import PaymentsTablePage from "./pages/PaymentsTablePage.jsx";
 import AdminPaymentDonationPage from "./pages/AdminPaymentDonationPage.jsx";
+import FeedbackPage from "./pages/FeedbackPage.jsx";
 
 
 function App() {
@@ -70,6 +71,7 @@ function App() {
                <Route path="/payment/cancel/:transactionId" element={<PaymentCancel />} />
                <Route path="/donorId/payment-details" element={<PaymentsTablePage />} />
                <Route path="/admin/payment-details" element={<AdminPaymentDonationPage />} />
+               <Route path="/feedbacks" element={<FeedbackPage/>} />
            </Routes>
        </BrowserRouter>
     </>
