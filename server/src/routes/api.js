@@ -8,8 +8,10 @@ import * as DeleteFileUtility from "../utility/DeleteFileUtility.js"
 import * as SingleDonationController from "../controllers/SingleDonationController.js";
 import * as DashboardController from "../controllers/DashboardController.js";
 import * as PaymentController from "../controllers/PaymentController.js";
+import * as feedbackController from "../controllers/FeedbackController.js";
 import upload from "../middlewares/FileUploads.js";
 import {initiatePayment} from "../service/PaymentService.js";
+import {createfeedbackController} from "../controllers/FeedbackController.js";
 //import uthMiddleware from "../middlewares/authMiddleware.js";
 const router = express.Router();
 
@@ -67,7 +69,9 @@ router.get("/donor/received-donation",authMiddleware.default,DashboardController
 router.post("/:id/update-volunteer-remark/:status",SingleDonationController.updateVolNewDonationController);
 router.get("/donation-details/:id",authMiddleware.default,SingleDonationController.DonationDetailsController);
 
-//dashboard
+router.post("/create-feedback",authMiddleware.default,feedbackController.createfeedbackController);
+router.get("/donorId/get-feedback",authMiddleware.default,feedbackController.getfeedbackController);
+//payment
 router.post('/payment',authMiddleware.default,PaymentController.initiatePaymentController)
 router.post('/payment/success/:transactionId',authMiddleware.default,PaymentController.successPaymentController)
 router.post('/payment/fail/:transactionId',authMiddleware.default,PaymentController.failPaymentController)
