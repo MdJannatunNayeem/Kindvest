@@ -63,37 +63,71 @@ const MenuBar = () => {
                                 <ul className="navbar-nav flex gap-x-5 float-right text-white gap-x-2">
                                     <li className="nav-item hover:bg-orange-400
                                     hover:px-3 hover:py-[3px] hover: rounded-full p-[3px] active:bg-orange-400 active:px-3 active:py-[3px]">
-                                        <NavLink to={"/"}>Home </NavLink></li>
+                                        <NavLink
+                                            className={({ isActive }) =>
+                                                `p-[5px] rounded-full ${isActive ? 'bg-orange-400' : ''}`
+                                            }
+                                            to={"/"}>Home </NavLink></li>
 
                                     <li className="nav-item hover:bg-orange-400 hover:px-3 hover:py-[3px] hover: rounded-full p-[3px]">
-                                        <NavLink to={"/feedbacks"}>Testimonials</NavLink></li>
-                                    <li className="nav-item hover:bg-orange-400 hover:px-3 hover:py-[3px] hover: rounded-full p-[3px]">
-                                        <NavLink to={"/activity"}>All Activity</NavLink></li>
+                                        <NavLink
+                                            className={({ isActive }) =>
+                                                `p-[3px] rounded-full ${isActive ? 'bg-orange-400' : ''}`
+                                            }
+                                            to={"/feedbacks"}>
+
+                                            Testimonials</NavLink></li>
+                                    <li className="nav-item hover:bg-orange-400 hover:px-3 hover:py-[3px] hover: rounded-full p-[3px]   ">
+                                        <NavLink
+                                            className={({ isActive }) =>
+                                                `p-[3px] rounded-full ${isActive ? 'bg-orange-400' : ''}`
+                                            }
+                                            to={"/activity"}>All Activity</NavLink></li>
 
                                     {isLogin ? (<>
                                                 {profile.role === "admin" ? (
                                                     <>
 
                                                         <li className="nav-item hover:bg-orange-400 hover:px-3 hover:py-[3px] hover: rounded-full p-[3px] ">
-                                                            <NavLink to={"/all-volunteers"}>Volunteer List</NavLink></li>
+                                                            <NavLink
+                                                                className={({ isActive }) =>
+                                                                    `p-[4px] rounded-full ${isActive ? 'bg-orange-400' : ''}`
+                                                                }
+                                                                to={"/all-volunteers"}>
+
+                                                                Volunteer List</NavLink></li>
                                                         <li className="nav-item hover:bg-orange-400 hover:px-3 hover:py-[3px] hover: rounded-full p-[3px] ">
-                                                            <NavLink to={"/admin/payment-details"}>Payment List</NavLink></li>
+                                                            <NavLink
+                                                                className={({ isActive }) =>
+                                                                    `p-[3px] rounded-full ${isActive ? 'bg-orange-400' : ''}`
+                                                                }
+                                                                to={"/admin/payment-details"}>Payment List</NavLink></li>
                                                     </>
                                                 ) : profile.role === "donor" ? (
                                                     <>
                                                         <li className="nav-item hover:bg-orange-400 hover:px-3 hover:py-[3px] hover: rounded-full p-[3px]">
-                                                            <NavLink to={"/donorId/payment-details"}>Payment Donations</NavLink></li>
+                                                            <NavLink
+                                                                className={({ isActive }) =>
+                                                                    `p-[3px] rounded-full ${isActive ? 'bg-orange-400' : ''}`
+                                                                }
+                                                                to={"/donorId/payment-details"}>Payment Donations</NavLink></li>
 
                                                     </>
                                                 ) : (
                                                     <>
                                                         <li className="nav-item hover:bg-orange-400 hover:px-3 hover:py-[3px] hover: rounded-full p-[3px]">
-                                                            <NavLink to={"/"}>Delivery History</NavLink></li>
+                                                            <NavLink
+                                                                className={({ isActive }) =>
+                                                                    `p-[3px] rounded-full ${isActive ? 'bg-orange-400' : ''}`
+                                                                }
+                                                                to={"/"}>Delivery History</NavLink></li>
 
                                                     </>
                                                 )}
                                                 <li className="nav-item bg-blue-400  rounded-full p-[4px]">
-                                                    <NavLink to={`/${profile.role}-dashboard`}>Dashboard</NavLink></li>
+                                                    <NavLink
+
+                                                        to={`/${profile.role}-dashboard`}>Dashboard</NavLink></li>
 
                                                 <div
                                                     className="w-8 h-8 rounded-full border border-white border-[1px] overflow-hidden">
@@ -135,7 +169,7 @@ const MenuBar = () => {
                                                             <li className="mb-2 bg-gray-500 hover:bg-orange-500 hover:text-white rounded-md cursor-pointer transition-all duration-200 ease-in-out">
                                                                 <span className="flex flex-row gap-3"><AiTwotoneUnlock
                                                                     className="w-6 h-6 bg-black rounded-full"/>
-                                                                    <NavLink to="/applied-job">Change Password</NavLink></span>
+                                                                    <NavLink to={`/changed-password/${profile?.email}`}>Change Password</NavLink></span>
                                                             </li>
                                                             <li className="bg-gray-500  hover:bg-red-500 hover:text-white rounded-md cursor-pointer transition-all duration-200 ease-in-out">
                                                                 <span className="flex flex-row gap-3"><AiOutlineLogout

@@ -1,5 +1,5 @@
 import  { useState} from 'react';
-import { useNavigate } from "react-router-dom";
+import {NavLink, useNavigate} from "react-router-dom";
 import { ErrorToast, IsEmpty } from "../Helper/helper.js";
 import { login } from "../apiRequest/api.js";
 import Loading from "./Loading.jsx";
@@ -64,12 +64,12 @@ const LoginForm = () => {
                                     <label className="text-base font-medium text-orange-400">
                                         Password
                                     </label>
-                                    <a
+                                    <NavLink to={"/email-verify"}
                                         className="text-sm font-semibold text-orange-400 hover:underline"
-                                        href="#"
+
                                     >
                                         Forgot password?
-                                    </a>
+                                    </NavLink>
                                 </div>
                                 <div className="mt-2">
                                     <input

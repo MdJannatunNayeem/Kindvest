@@ -25,7 +25,7 @@ router.get('/user-details',authMiddleware.default, UserController.UserDetails);
 router.get('/all-volunteers',authMiddleware.default,UserController.AllVolunteerController);
 router.get('/volunteers',authMiddleware.default,SingleDonationController.findAllVolunteerController);
 
-router.post("/changed-password", authMiddleware.default , UserController.changePassword);
+router.post("/changed-password/:email", UserController.changePassword);
 router.post("/update-profile",authMiddleware.default,UserController.updateProfileController);
 router.get("/numbers-of-roles", DashboardController.numbersOfDonorVolunteerEventController);
 router.get("/admin-dashboard-stat",authMiddleware.default,DashboardController.AdminDashboardStatController);

@@ -541,6 +541,47 @@ class ApiRequest {
         }
     }
 
+    async UserOTP(email){
+        let result = await axios.get(`${baseURL}OTP/${email}`);
+
+         console.log("result return",result);
+        if (result.data.status === true) {
+            // console.log("result return");
+            //SuccessToast("Successfully Done")
+            return true;
+        } else {
+            ErrorToast("Error ");
+        }
+    }
+
+    async VerifyOTP(email,otp){
+        let result = await axios.get(`${baseURL}VerifyLogin/${email}/${otp}`);
+
+        console.log("result return",result);
+        if (result.data.status === true) {
+            // console.log("result return");
+            //SuccessToast("Successfully Done")
+            return true;
+        } else {
+            ErrorToast("Error ");
+        }
+    }
+
+    async ChangePassword(password,email){
+        console.log("pass",password);
+        let result = await axios.post(`${baseURL}changed-password/${email}`,{
+            password: password,
+        });
+
+        console.log("result return",result);
+        if (result.data.status === true) {
+             console.log("return",result.data);
+            //SuccessToast("Successfully Done")
+            return true;
+        } else {
+            ErrorToast("Error ");
+        }
+    }
 
 }
 export const { register ,updateProfile, fileUpload , login,userDetails,logout,createDonation ,findDonationList,createEvent,
@@ -549,4 +590,4 @@ export const { register ,updateProfile, fileUpload , login,userDetails,logout,cr
     DonationDetails,DashboardInformation,AdminDashboardStat,VolDashboardStat,DonorDashboardStat,AdminAcceptDonation,AdminPendingDonation,
     AdminCompletionDonation,VolDeliveredDonation,VolReceivedDonation,VolPendingDonation,DonorOnGoingDonation,DonorPendingDonation,
     DonorCompleteDonation,VolunteersTotalList,initiatePayment,DonorTotalPaymentsList,TotalPaymentsList,TotalFeedbacksList,
-    createFeedback} = new ApiRequest();
+    createFeedback,UserOTP,VerifyOTP,ChangePassword} = new ApiRequest();

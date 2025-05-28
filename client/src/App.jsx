@@ -32,6 +32,9 @@ import PaymentCancel from "./pages/PaymentCancel.jsx";
 import PaymentsTablePage from "./pages/PaymentsTablePage.jsx";
 import AdminPaymentDonationPage from "./pages/AdminPaymentDonationPage.jsx";
 import FeedbackPage from "./pages/FeedbackPage.jsx";
+import EmailVerify from "./components/EmailVerify.jsx";
+import OTPsend from "./components/OTPsend.jsx";
+import ChangedPassword from "./components/ChangePassword.jsx";
 
 
 function App() {
@@ -72,6 +75,9 @@ function App() {
                <Route path="/donorId/payment-details" element={<PaymentsTablePage />} />
                <Route path="/admin/payment-details" element={<AdminPaymentDonationPage />} />
                <Route path="/feedbacks" element={<FeedbackPage/>} />
+               <Route path="/email-verify" element={<EmailVerify/>} />
+               <Route path="/OTP/:email" element={<OTPsend/>} />
+               <Route path="/changed-password/:email" element={<ChangedPassword/>} />
            </Routes>
        </BrowserRouter>
     </>

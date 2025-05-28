@@ -89,9 +89,9 @@ export const UserOTPService = async (req) => {
 
         await UsersModel.updateOne({email:email},{$set:{otp:code}},{upsert:true})
 
-        return {status:"success", message:"6 Digit OTP has been send"}
+        return {status:true, message:"6 Digit OTP has been send"}
     }catch (e) {
-        return {status:"fail", message:e}
+        return {status:false, message:e}
     }
 }
 
@@ -117,15 +117,15 @@ export const VerifyOTPService = async (req) => {
             // OTP Code Update To 0
             await UsersModel.updateOne({email:email},{$set:{otp:"0"}})
 
-            return {status:"success", message:"Valid OTP",token:token,total:total}
+            return {status:true, message:"Valid OTP",token:token,total:total}
 
         }
         else{
-            return {status:"fail", message:"Invalid OTP",total:total}
+            return {status:false, message:"Invalid OTP",total:total}
         }
 
     }catch (e) {
-        return {status:"fail", message:"Invalid OTP"}
+        return {status:false, message:"Invalid OTP"}
     }
 
 
@@ -134,13 +134,14 @@ export const VerifyOTPService = async (req) => {
 // update password
 export const ChangePasswordService = async (req) => {
     try {
-        let email =req.headers.email;
+        let email =req.params.email;
         let Password=req.body.password;
         //  reqBody.userID=user_id;
+        console.log("Email,Pass",email,Password);
         await UsersModel.updateOne({email:email},{$set:{password:Password}},{upsert:true})
-        return {status:"success", message:"Password Changed Success",password:Password,email:email}
+        return {status:true, message:"Password Changed Success",password:Password,email:email}
     }catch (e) {
-        return {status:"fail", message:"Something Went Wrong"}
+        return {status:false, message:"Something Went Wrong"}
     }
 }
 

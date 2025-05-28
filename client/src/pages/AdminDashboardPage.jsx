@@ -1,15 +1,17 @@
-import MenuBar from "../components/MenuBar.jsx";
+
 import AdminDashboard from "../components/AdminDashboard.jsx";
 import AdminTab from "../components/AdminTab.jsx";
+import MasterLayout from "../../MasterLayout/MasterLayout.jsx";
 
 
 
 const AdminDashboardPage = () => {
     return (
         <div>
-        <MenuBar/>
+        <MasterLayout>
             <AdminDashboard />
             <AdminTab/>
+        </MasterLayout>
         </div>
     );
 }
