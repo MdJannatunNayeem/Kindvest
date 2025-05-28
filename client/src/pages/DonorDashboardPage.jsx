@@ -1,14 +1,16 @@
-import MenuBar from "../components/MenuBar.jsx";
+
 import DonorDashboard from "../components/DonorDashboard.jsx";
 import DonorTable from "../components/DonorTable.jsx";
+import MasterLayout from "../../MasterLayout/MasterLayout.jsx";
 
 
 const DonorDashboardPage = () => {
     return (
         <>
-        <MenuBar/>
+        <MasterLayout>
             <DonorDashboard />
             <DonorTable/>
+        </MasterLayout>
         </>
     );
 }
